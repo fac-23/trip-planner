@@ -1,6 +1,60 @@
-body {
+/*------------------------------------*\
+BASE
+\*------------------------------------*/
+* {
   margin: 0;
-  text-align: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: #00b9ad;
+  font-size: 2rem;
+}
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+button {
+  max-width: 300px;
+}
+/*------------------------------------*\
+  MODIFIER CLASSES
+\*------------------------------------*/
+
+/* width modifier classes */
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 60rem;
+}
+
+.width-lg {
+  max-width: 60rem;
+}
+
+.width-md {
+  max-width: 40rem;
+}
+
+.width-sm {
+  max-width: 20rem;
+}
+
+/* stack modifier classes */
+
+.stack-lg > * + * {
+  margin-top: 3rem;
+}
+
+.stack-md > * + * {
+  margin-top: 1.2rem;
+}
+
+.stack-sm > * + * {
+  margin-top: 0.5rem;
+}
