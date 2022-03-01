@@ -51,6 +51,12 @@ form {
   right: 1rem;
 }
 
+.home {
+  width: 25px;
+  position: absolute;
+  left: 5rem;
+}
+
 /*------------------------------------*\
   HOME PAGE
 \*------------------------------------*/
