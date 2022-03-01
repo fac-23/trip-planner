@@ -74,10 +74,23 @@ function renderItemsFromDb(db) {
       // Resulting key/value pair -- this callback
       // will be executed for every item in the
       // database.
-      console.log(key, value);
+      // return [key, value];
     })
     .then(function () {
       console.log("Iteration has completed");
+    })
+    .catch(function (err) {
+      // This code runs if there were any errors
+      console.log(err);
+    });
+}
+
+function getItem(db, key) {
+  db.getItem(key)
+    .then(function (value) {
+      // This code runs once the value has been loaded
+      // from the offline store.
+      console.log("ITEM RETRIEVED", value.name);
     })
     .catch(function (err) {
       // This code runs if there were any errors
@@ -91,4 +104,5 @@ export {
   insertIntoDb,
   deleteFromDb,
   renderItemsFromDb,
+  getItem,
 };
