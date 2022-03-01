@@ -8,8 +8,9 @@ BASE
 }
 
 body {
-  background-color: #00b9ad;
-  font-size: 2rem;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Raleway", sans-serif;
 }
 
 form {
@@ -17,9 +18,138 @@ form {
   flex-direction: column;
 }
 
-input,
-button {
-  max-width: 300px;
+.wrapper {
+  height: 100vh;
+}
+
+/*------------------------------------*\
+  COMPONENTS
+\*------------------------------------*/
+
+/* TopNavigation */
+
+.top-navigation {
+  height: 50px;
+  width: 100%;
+  background-color: #00b9ad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+}
+
+.arrow-back {
+  width: 25px;
+  position: absolute;
+  left: 1rem;
+}
+
+/*------------------------------------*\
+  HOME PAGE
+\*------------------------------------*/
+.logo {
+  width: 100%;
+  max-width: 250px;
+}
+
+.app-intro {
+  background-color: #00b9ad;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  color: #fff;
+  max-width: 500px;
+  box-shadow: 1px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.home-page-links {
+  display: flex;
+  flex-direction: column;
+}
+
+/*------------------------------------*\
+  MY-DOCUMENTS PAGE
+\*------------------------------------*/
+
+.wrapper-documents-page {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+
+.plus-icon {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  margin-left: 0;
+  background-color: #7ddbd6;
+  padding: 0.5rem;
+  border-radius: 10px 0px 0px 10px;
+}
+
+/* documents list items */
+
+.documents {
+  width: 80%;
+}
+
+.documents__list {
+  list-style: none;
+  text-align: left;
+}
+
+.documents__listItem {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.documents__link {
+  display: block;
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.documents__link:hover {
+  transform: scale(1.02);
+  color: #00b9ad;
+}
+
+.bin {
+  /* position: absolute; */
+  width: 15px;
+  /* padding: 1rem; */
+}
+
+/*------------------------------------*\
+  MY TRIPS PAGE
+\*------------------------------------*/
+
+.trip-icon {
+  width: 100%;
+  max-width: 150px;
+}
+
+.wrapper-trips-page {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 /*------------------------------------*\
   MODIFIER CLASSES
@@ -31,6 +161,7 @@ button {
   margin-left: auto;
   margin-right: auto;
   max-width: 60rem;
+  padding: 0 1rem;
 }
 
 .width-lg {

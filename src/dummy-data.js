@@ -1,6 +1,6 @@
 const documents = [
-  {id: "passport", data: "THE BEST PASSPORT"},
-  {id: "covid-pass", data: "JUST A COVID PASS"}
-]
+  { id: "Passport", data: "THE BEST PASSPORT" },
+  { id: "Covid-pass", data: "JUST A COVID PASS" },
+];
 
 export default documents;
