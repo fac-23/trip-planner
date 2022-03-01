@@ -45,6 +45,12 @@ form {
   left: 1rem;
 }
 
+.arrow-next {
+  width: 25px;
+  position: absolute;
+  right: 1rem;
+}
+
 /*------------------------------------*\
   HOME PAGE
 \*------------------------------------*/
