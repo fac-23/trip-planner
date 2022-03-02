@@ -4,20 +4,9 @@ import { Link } from "react-router-dom";
 // import uuid, to generate random ids
 import { v4 as uuidv4 } from "uuid";
 
+// Helper function files
 import useDb from "../../useDb.js";
-
-// DUMMY DATA
-import documents from "../dummy-data.js";
-
-// Helper functions
-import {
-  nameInputHandler,
-  imageInputHandler,
-  insertIntoDb,
-  deleteFromDb,
-  renderItemsFromDb,
-  getItem,
-} from "../../helper-functions.js";
+import { nameInputHandler, imageInputHandler } from "../../helper-functions.js";
 
 // components
 import StyledButton from "../components/StyledButton";
@@ -29,22 +18,29 @@ import plusicon from "../assets/images/plus-icon.png";
 import bin from "../assets/images/bin.png";
 
 function Docs({ documentsStore }) {
-  // destructure helper functions specifically for this database instance
-  const { state: stateObject, getAll, setItem } = useDb(documentsStore);
+  // destructure helper functions specifically for this database instance from useDB
+  // stateObject looks like this: { status: "loading", data: null }
+  const {
+    state: stateObject,
+    getAll,
+    setItem,
+    removeItem,
+  } = useDb(documentsStore);
+
+  useEffect(() => {
+    console.log("stateObject FROM USEEFFECT IN DOCS", stateObject);
+  }, [stateObject]);
+
   /* ******************* 
    STATES
   *********************/
-  useEffect(() => {
-    console.log("STATE FROM USEEFFECT IN DOCS", stateObject);
-  }, [stateObject]);
-
-  getItem(documentsStore, "af10d581-eb54-4a85-a9af-7fcf5e998773");
   // might have to move all these states to app.jsx to be able to pass them down as props to documentDetail pages too
   const [image, setImage] = useState("");
   const [fileName, setFileName] = useState("");
 
+  // documents is an array of objects
+  // each object has a name, data and key prop
   const documents = getAll();
-  console.log("DOCUMENTS", documents);
 
   return (
     <Fragment>
@@ -84,8 +80,6 @@ function Docs({ documentsStore }) {
               UPLOAD
             </StyledButton>
           </form>
-
-          {/* <h2>Type is {typeFile}</h2> */}
         </section>
 
         <section className="documents  stack-lg">
@@ -94,8 +88,6 @@ function Docs({ documentsStore }) {
           </h2>
 
           <ul className="documents__list stack-md">
-            {}
-
             {documents &&
               documents.map((doc) => (
                 <li key={uuidv4()} className="documents__listItem">
@@ -108,29 +100,17 @@ function Docs({ documentsStore }) {
                   <StyledButton
                     className="documents__btn--delete"
                     value={doc.key}
-                    onClick={(event) =>
-                      deleteFromDb(event, documentsStore, doc.key)
-                    }
+                    onClick={() => removeItem(doc.key)}
                   >
                     <img src={bin} alt="a bin" className="bin"></img>
                   </StyledButton>
                 </li>
               ))}
-
-            {
-              // renderItemsFromDb(documentsStore)
-              /* Instead of looping over the dummy data object, I need to call a function to loop over localForage and render li > link elements for each entry, to each li add a key with a randomID generated using uuid */
-            }
           </ul>
         </section>
       </div>
     </Fragment>
   );
 }
-
-// I get localForage length
-// localForage.length().then((result) => {
-//   console.log(result);
-// });
 
 export default Docs;
