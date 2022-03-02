@@ -40,7 +40,7 @@ function Layout({ pageTitle }) {
 
       <nav className="bottom-navigation">
         <Nav>
-          <div className="links active">
+          <div className="links">
             {tabs.map((tab, index) => (
               <NavItem key={`tab-${index}`}>
                 <NavLink to={tab.route}>
