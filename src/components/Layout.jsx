@@ -2,7 +2,7 @@ import React from "react";
 import arrowBack from "../assets/images/arrow-back.png";
 import home from "../assets/images/home.png";
 import { useNavigate } from "react-router-dom";
-import styles from "styled-components";
+// import styles from "styled-components";
 import { Link } from "react-router-dom";
 import { Nav, NavItem } from "reactstrap";
 import { NavLink } from "react-router-dom";
@@ -28,33 +28,28 @@ function Layout({ pageTitle }) {
   const navigate = useNavigate();
   return (
     <div>
-      <nav className="top-navigation" role="navigation">
-        <button className={styles.btn} onClick={() => navigate(-1)}>
-          <img src={arrowBack} className="arrow-back"></img>
+      <nav className="top-navigation">
+        <button className="btn" onClick={() => navigate(-1)}>
+          <img src={arrowBack} className="arrowBack"></img>
         </button>
-        <button className={styles.btn}>
-          <Link to={"/"}>
-            <img src={home} className="home" />
-          </Link>
-        </button>
+        <Link to={"/"}>
+          <img src={home} className="home" />
+        </Link>
         <h1>{pageTitle}</h1>
       </nav>
 
-      <nav
-        className="navbar fixed-bottom navbar-light d-block d-lg-none bottom-tab-nav"
-        role="navigation"
-      >
-        <Nav className="w-100">
-          <div className="links">
+      <nav className="bottom-navigation">
+        <Nav>
+          <div className="links active">
             {tabs.map((tab, index) => (
               <NavItem key={`tab-${index}`}>
-                <NavLink
-                  to={tab.route}
-                  className="nav-link"
-                  activeClassName="active"
-                >
-                  <div className="row d-flex flex-column justify-content-center align-items-center">
-                    <FontAwesomeIcon size="lg" icon={tab.icon} />
+                <NavLink to={tab.route}>
+                  <div className="iconBox">
+                    <FontAwesomeIcon
+                      className="icons"
+                      size="lg"
+                      icon={tab.icon}
+                    />
                     <div>{tab.label}</div>
                   </div>
                 </NavLink>
@@ -64,9 +59,6 @@ function Layout({ pageTitle }) {
         </Nav>
       </nav>
     </div>
-
-    // <Link to={"/my-documents"}></Link>
-    // <Link to={"/my-trips"}></Link>
   );
 }
 

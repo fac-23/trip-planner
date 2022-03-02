@@ -37,68 +37,70 @@ form {
   align-items: center;
   position: relative;
   color: #fff;
+  margin: 0 auto;
 }
 
-.arrow-back {
-  margin: 0rem;
-  width: 25px;
+.btn {
+  background-color: #00b9ad;
+}
+
+.arrowBack {
+  margin: -0.8rem 0 0 2rem;
+  width: 2.2rem;
   position: absolute;
+  top: 1;
   left: 0;
 }
 
 .home {
-  margin: 0rem;
-  width: 25px;
+  margin: -1rem 2rem 0 0;
+  width: 2.5rem;
   position: absolute;
+  top: 1;
   right: 0;
 }
 
 /* Bottom Navigation */
 
 .bottom-navigation {
-  height: 50px;
-  width: 100%;
   background-color: #00b9ad;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1000;
+  height: 5%;
+  bottom: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  bottom: 0;
-  color: #fff;
+  padding: 3rem;
 }
 
-.navbar {
-  background-color: #00b9ad;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  border-bottom: solid 5px #00b9ad;
-}
-
-.navbar .links {
-  align-items: center;
-  display: inline;
-  color: #f2f2f2;
+.links {
   text-align: center;
   text-decoration: none;
-  font-size: 17px;
-  list-style: none;
-  text-decoration: none;
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  margin: 3rem;
+}
+
+.iconBox {
+  padding: 5rem;
+}
+
+.iconBox:hover {
+  padding: 5rem;
+  background-color: rgb(89, 120, 255);
 }
 
 .icons {
+  text-align: center;
+  font-size: 30px;
   text-decoration: none;
-}
-
-.bottom-nav-link.active {
-  background-color: #04aa6d;
-  color: white;
-}
-.bottom-tab-label {
-  font-size: 12px;
+  color: #4537c4;
 }
 
 /*------------------------------------*\
@@ -143,6 +145,7 @@ form {
   align-items: center;
   text-align: center;
   gap: 2rem;
+  z-index: 1;
 }
 
 .plus-icon {
