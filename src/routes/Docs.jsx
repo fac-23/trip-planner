@@ -1,14 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 
-// import localForage, library to use IndexedDB
-import localforage from "localforage";
-
-// create localforage instance to store documents
-let documentsStore = localforage.createInstance({
-  name: "documentsStore",
-});
-
 // import uuid, to generate random ids
 import { v4 as uuidv4 } from "uuid";
 
@@ -34,7 +26,7 @@ import Layout from "../components/Layout";
 import plusicon from "../assets/images/plus-icon.png";
 import bin from "../assets/images/bin.png";
 
-function Docs() {
+function Docs({ documentsStore }) {
   /* ******************* 
    STATES
   *********************/
