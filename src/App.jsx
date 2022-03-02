@@ -1,11 +1,8 @@
 import React from "react";
 import "./css/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Docs from "./routes/Docs";
-import Trips from "./routes/Trips";
-import Home from "./routes/Home";
-
 import "bootstrap/dist/css/bootstrap.min.css";
+import Home from "./routes/Home";
 import PageNotFound from "./routes/PageNotFound";
 import Docs from "./routes/Docs";
 import SingleDoc from "./routes/SingleDoc";
