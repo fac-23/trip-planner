@@ -1,16 +1,10 @@
 import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 
-// import localForage, library to use IndexedDB
-import localforage from "localforage";
-
-// create localforage instance to store documents
-let documentsStore = localforage.createInstance({
-  name: "documentsStore",
-});
-
 // import uuid, to generate random ids
 import { v4 as uuidv4 } from "uuid";
+
+import useDb from "../../useDb.js";
 
 // DUMMY DATA
 import documents from "../dummy-data.js";
@@ -34,7 +28,9 @@ import Layout from "../components/Layout";
 import plusicon from "../assets/images/plus-icon.png";
 import bin from "../assets/images/bin.png";
 
-function Docs() {
+function Docs({ documentsStore }) {
+  // destructure helper functions specifically for this database instance
+  const { status, getAll, setItem } = useDb(documentsStore);
   /* ******************* 
    STATES
   *********************/
@@ -52,9 +48,11 @@ function Docs() {
           <h2>Add a new document</h2>
 
           <form
-            onSubmit={(event) =>
-              insertIntoDb(event, fileName, image, documentsStore, setFileName)
-            }
+            onSubmit={(event) => {
+              event.preventDefault();
+              setItem(fileName, image);
+              setFileName("");
+            }}
             className="stack-md"
           >
             <label htmlFor="upload-input">Click to load an image</label>
