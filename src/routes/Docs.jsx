@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 
 // import uuid, to generate random ids
@@ -30,14 +30,21 @@ import bin from "../assets/images/bin.png";
 
 function Docs({ documentsStore }) {
   // destructure helper functions specifically for this database instance
-  const { status, getAll, setItem } = useDb(documentsStore);
+  const { state: stateObject, getAll, setItem } = useDb(documentsStore);
   /* ******************* 
    STATES
   *********************/
+  useEffect(() => {
+    console.log("STATE FROM USEEFFECT IN DOCS", stateObject);
+  }, [stateObject]);
+
   getItem(documentsStore, "af10d581-eb54-4a85-a9af-7fcf5e998773");
   // might have to move all these states to app.jsx to be able to pass them down as props to documentDetail pages too
   const [image, setImage] = useState("");
   const [fileName, setFileName] = useState("");
+
+  const documents = getAll();
+  console.log("DOCUMENTS", documents);
 
   return (
     <Fragment>
@@ -87,22 +94,28 @@ function Docs({ documentsStore }) {
           </h2>
 
           <ul className="documents__list stack-md">
-            {documents.map((el) => (
-              <li key={uuidv4()} className="documents__listItem">
-                <Link to={`/my-documents/${el.id}`} className="documents__link">
-                  {el.id}
-                </Link>
-                <StyledButton
-                  className="documents__btn--delete"
-                  value={el.key}
-                  onClick={(event) =>
-                    deleteFromDb(event, documentsStore, el.key)
-                  }
-                >
-                  <img src={bin} alt="a bin" className="bin"></img>
-                </StyledButton>
-              </li>
-            ))}
+            {}
+
+            {documents &&
+              documents.map((doc) => (
+                <li key={uuidv4()} className="documents__listItem">
+                  <Link
+                    to={`/my-documents/${doc.name}`}
+                    className="documents__link"
+                  >
+                    {doc.name}
+                  </Link>
+                  <StyledButton
+                    className="documents__btn--delete"
+                    value={doc.key}
+                    onClick={(event) =>
+                      deleteFromDb(event, documentsStore, doc.key)
+                    }
+                  >
+                    <img src={bin} alt="a bin" className="bin"></img>
+                  </StyledButton>
+                </li>
+              ))}
 
             {
               // renderItemsFromDb(documentsStore)

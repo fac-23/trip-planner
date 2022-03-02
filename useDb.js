@@ -9,7 +9,7 @@ export default function useDb(store) {
   });
 
   const { status, data } = state;
-
+  // When the page loads we gather the db into an array and set the state
   useEffect(() => {
     const result = [];
     store
@@ -21,8 +21,16 @@ export default function useDb(store) {
         value.key = key;
         result.push(value);
       })
-      .then(() => setState({ status: "resolved", data: result }));
+      .then(() => {
+        setState({ status: "resolved", data: result });
+        // console.log("RESULT FROM useDB", result);
+      });
   }, []);
+
+  // state to console log
+  useEffect(() => {
+    console.log("STATE FROM USEEFFECT IN useDB", state);
+  }, [state]);
 
   function getAll() {
     return data;
@@ -48,22 +56,23 @@ export default function useDb(store) {
   }
 
   // insert single item in database
-  function setItem(name, data) {
+  function setItem(name, fileUrl) {
     let randomKey = uuidv4();
 
     setState({ status: "updating", data });
     // if I have an image loaded and user entered a file name
     if (data && name) {
       store
-        .setItem(randomKey, { name, data })
+        .setItem(randomKey, { name, fileUrl })
         .then(() => {
           console.log(`File ${name} inserted`);
 
           // have to create a new Map to avoid mutating old React state
           const newData = [...data];
-          newData.push({ key: randomKey, name: name, data: data });
+          newData.push({ key: randomKey, name: name, data: fileUrl });
+
+          // setState is async
           setState({ status: "resolved", data: newData });
-          console.log("STATE", state);
         })
         .catch(function (err) {
           console.log(err);
@@ -86,5 +95,6 @@ export default function useDb(store) {
     getItem,
     setItem,
     getAll,
+    state,
   };
 }
