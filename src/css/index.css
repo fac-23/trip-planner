@@ -161,7 +161,8 @@ form {
 .documents__list {
   list-style: none;
   text-align: left;
-  height: 100vh;
+  height: 100%;
+  margin-bottom: 80px;
 }
 
 .documents__listItem {
