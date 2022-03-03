@@ -49,21 +49,21 @@ export default function useDb(store) {
   // }
 
   // insert single item into db and update state
-  function setItem(name, fileUrl) {
+  function setItem(name, entryData) {
     let randomKey = uuidv4();
 
     setState({ status: "updating", data });
     // if name of doc and file were inputed by user
-    if (name && fileUrl) {
+    if (name && entryData) {
       store
-        .setItem(randomKey, { name, fileUrl })
+        .setItem(randomKey, { name, entryData })
         .then(() => {
           console.log(`File ${name} inserted`);
 
           // spread current data array to avoid mutating old React state
           const newData = [...data];
           // push the new item into newData array
-          newData.push({ key: randomKey, name: name, data: fileUrl });
+          newData.push({ key: randomKey, name: name, data: entryData });
 
           // update the state to include new item
           // setState is async
