@@ -6,7 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 
 // Helper function files
 import useDb from "../../useDb.js";
-import { nameInputHandler, imageInputHandler } from "../../helper-functions.js";
+import { imageInputHandler } from "../../helper-functions.js";
 
 // components
 import StyledButton from "../components/StyledButton";
@@ -70,7 +70,7 @@ function Docs({ documentsStore }) {
             <StyledInput
               type="text"
               id="file-name"
-              onChange={(event) => nameInputHandler(event, setFileName)}
+              onChange={(event) => setFileName(event.target.value)}
               value={fileName}
               placeholder="Enter a name"
             />
