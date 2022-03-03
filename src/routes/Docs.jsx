@@ -92,7 +92,7 @@ function Docs({ documentsStore }) {
               documents.map((doc) => (
                 <li key={uuidv4()} className="documents__listItem">
                   <Link
-                    to={`/my-documents/${doc.name}`}
+                    to={`/my-documents/${doc.key}`}
                     className="documents__link"
                   >
                     {doc.name}
