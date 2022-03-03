@@ -8,7 +8,6 @@ import SingleDoc from "./routes/SingleDoc";
 import Trips from "./routes/Trips";
 import SingleTrip from "./routes/SingleTrip";
 import CreateTrip from "./routes/CreateTrip";
-import useDb from "../useDb.js";
 // import localForage, library to use IndexedDB
 import localforage from "localforage";
 
@@ -18,9 +17,6 @@ let documentsStore = localforage.createInstance({
 });
 
 function App() {
-  // Helper functions
-  const { status, getAll, setItem, removeItem } = useDb(documentsStore);
-
   return (
     <div>
       <BrowserRouter>
