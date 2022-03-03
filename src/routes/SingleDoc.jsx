@@ -21,7 +21,7 @@ function SingleDoc({ documentsStore }) {
     () =>
       getItem(
         documentsStore,
-        "a5a1ec2a-9f75-4b71-949b-12677b913fd4",
+        "0d837fcb-6874-466b-bd3c-ca8978945906",
         setSingleFile
       ),
     [documentsStore]
@@ -39,6 +39,8 @@ function SingleDoc({ documentsStore }) {
 
       {/* looks in the documents object for the document with the id that we just got from the url and returns the associated data */}
       <p>{documents.find((document) => document.id === documentId).data}</p>
+
+      {<img src={singleFile.data} />}
     </div>
   );
 }

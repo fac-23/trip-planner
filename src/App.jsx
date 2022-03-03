@@ -9,7 +9,6 @@ import SingleDoc from "./routes/SingleDoc";
 import Trips from "./routes/Trips";
 import SingleTrip from "./routes/SingleTrip";
 import CreateTrip from "./routes/CreateTrip";
-
 // import localForage, library to use IndexedDB
 import localforage from "localforage";
 
