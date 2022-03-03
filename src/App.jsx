@@ -22,7 +22,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route data-testid="home" path="/" element={<Home />}></Route>
 
           <Route
             path="/my-documents"
