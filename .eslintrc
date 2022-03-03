@@ -1,3 +1,6 @@
 {
-	"extends": ["eslint:recommended", "react-minimal"]
+  "extends": ["eslint:recommended", "react-minimal"],
+  "parserOptions": {
+    "ecmaVersion": 2022
+  }
 }
