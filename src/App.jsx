@@ -17,6 +17,11 @@ let documentsStore = localforage.createInstance({
   name: "documentsStore",
 });
 
+// create localforage instance to store trips
+let tripsStore = localforage.createInstance({
+  name: "tripsStore",
+});
+
 function App() {
   return (
     <div>
@@ -38,7 +43,7 @@ function App() {
 
           <Route path="/my-trips/:tripId" element={<SingleTrip />} />
 
-          <Route path="/create-trip" element={<CreateTrip />} />
+          <Route path="/create-trip" element={<CreateTrip tripsStore={tripsStore} />} />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>
