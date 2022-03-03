@@ -11,6 +11,7 @@ body {
   height: 100vh;
   width: 100vw;
   font-family: "Raleway", sans-serif;
+  color: var(--color-font);
 }
 
 form {
@@ -20,6 +21,7 @@ form {
 
 .wrapper {
   height: 100vh;
+  margin-top: 60px;
 }
 
 /*------------------------------------*\
@@ -31,7 +33,7 @@ form {
 .top-navigation {
   height: 50px;
   width: 100%;
-  background-color: #00b9ad;
+  background-color: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +64,7 @@ form {
 /* Bottom Navigation */
 
 .bottom-navigation {
-  background-color: #00b9ad;
+  background-color: var(--color-primary);
   position: fixed;
   z-index: 99;
   height: auto;
@@ -96,7 +98,7 @@ form {
   text-align: center;
   font-size: 1.5rem;
   text-decoration: none;
-  color: #4537c4;
+  color: var(--color-font);
 }
 
 /*------------------------------------*\
@@ -108,7 +110,7 @@ form {
 }
 
 .app-intro {
-  background-color: #00b9ad;
+  background-color: var(--color-primary);
   border-radius: 10px;
   padding: 1rem;
   text-align: center;
@@ -145,7 +147,7 @@ form {
 .plus-icon {
   position: absolute;
   left: 0;
-  width: 40px;
+  width: 50px;
   margin-left: 0;
   background-color: #7ddbd6;
   padding: 0.5rem;
@@ -176,7 +178,7 @@ form {
   display: block;
   text-decoration: none;
   font-size: 1.5rem;
-  color: #333;
+  color: var(--color-font);
   transition: transform 0.2s;
 }
 
@@ -191,6 +193,12 @@ form {
   /* padding: 1rem; */
 }
 
+/*------------------------------------*\
+  SINGLE DOC PAGE
+\*------------------------------------*/
+.wrapper-singledoc-page {
+  text-align: center;
+}
 /*------------------------------------*\
   MY TRIPS PAGE
 \*------------------------------------*/

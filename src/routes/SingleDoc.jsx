@@ -1,5 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
+
+// components
+import StyledImgPreview from "../components/StyledImgPreview";
+import Layout from "../components/Layout";
+
+// import web worker to process the most tasks which take time such as parsing and rendering a PDF document
+import { Viewer, Worker } from "@react-pdf-viewer/core";
+
+// Import the styles
+import "@react-pdf-viewer/core/lib/styles/index.css";
 
 function SingleDoc({ documentsStore }) {
   const [singleEntry, setSingleEntry] = useState(null);
@@ -20,11 +30,22 @@ function SingleDoc({ documentsStore }) {
 
   // We will need some logic to detect the document type, if img or PDF, using typeFile? like on line 83 of myDocuments.jsx
   return (
-    <div>
-      <h1>This is your {singleEntry && singleEntry.name}</h1>
+    <Fragment>
+      <Layout pageTitle="Single Document" />
 
-      <img src={singleEntry && singleEntry.fileUrl}></img>
-    </div>
+      <div className="wrapper wrapper-singledoc-page center stack-lg">
+        <h1>{singleEntry && singleEntry.name}</h1>
+        {singleEntry && singleEntry.fileUrl.includes("data:image") && (
+          <StyledImgPreview src={singleEntry.fileUrl}></StyledImgPreview>
+        )}
+
+        {singleEntry && singleEntry.fileUrl.includes("data:application/pdf") && (
+          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+            <Viewer fileUrl={singleEntry.fileUrl}></Viewer>
+          </Worker>
+        )}
+      </div>
+    </Fragment>
   );
 }
 
