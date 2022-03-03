@@ -18,42 +18,42 @@ function imageInputHandler(event, setState) {
   }
 }
 
-// // function to retrieve single file by key from database
-// function getItem(db, key, setSingleFile) {
-//   let singleFile = "";
-//   db.getItem(key)
-//     .then(function (value) {
-//       // This code runs once the value has been loaded
-//       // from the offline store.
-//       // console.log("ITEM RETRIEVED", value.name, value.data);
-//       singleFile = value;
-//     })
-//     .then(function () {
-//       setSingleFile(singleFile);
-//     })
-//     .catch(function (err) {
-//       // This code runs if there were any errors
-//       console.log(err);
-//     });
-// }
+// function to retrieve single file by key from database
+function getItem(db, key, setSingleFile) {
+  let singleFile = "";
+  db.getItem(key)
+    .then(function (value) {
+      // This code runs once the value has been loaded
+      // from the offline store.
+      // console.log("ITEM RETRIEVED", value.name, value.data);
+      singleFile = value;
+    })
+    .then(function () {
+      setSingleFile(singleFile);
+    })
+    .catch(function (err) {
+      // This code runs if there were any errors
+      console.log(err);
+    });
+}
 
-// function setSingleFileInitialState(db, key, initialValue) {
-//   let singleFileInitialState = "";
-//   db.getItem(key)
-//     .then(function (value) {
-//       singleFileInitialState = value;
-//     })
-//     .then(function () {
-//       // console.log(
-//       //   "single file initial state in helper functions",
-//       //   singleFileInitialState
-//       // );
-//     })
-//     .catch(function (err) {
-//       // This code runs if there were any errors
-//       console.log(err);
-//     });
-//   return singleFileInitialState || initialValue;
-// }
+function setSingleFileInitialState(db, key, initialValue) {
+  let singleFileInitialState = "";
+  db.getItem(key)
+    .then(function (value) {
+      singleFileInitialState = value;
+    })
+    .then(function () {
+      // console.log(
+      //   "single file initial state in helper functions",
+      //   singleFileInitialState
+      // );
+    })
+    .catch(function (err) {
+      // This code runs if there were any errors
+      console.log(err);
+    });
+  return singleFileInitialState || initialValue;
+}
 
-export { imageInputHandler };
+export { imageInputHandler, setSingleFileInitialState, getItem };
