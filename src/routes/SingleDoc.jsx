@@ -35,13 +35,13 @@ function SingleDoc({ documentsStore }) {
 
       <div className="wrapper wrapper-singledoc-page center stack-lg">
         <h1>{singleEntry && singleEntry.name}</h1>
-        {singleEntry && singleEntry.fileUrl.includes("data:image") && (
-          <StyledImgPreview src={singleEntry.fileUrl}></StyledImgPreview>
+        {singleEntry && singleEntry.entryData.includes("data:image") && (
+          <StyledImgPreview src={singleEntry.entryData}></StyledImgPreview>
         )}
 
-        {singleEntry && singleEntry.fileUrl.includes("data:application/pdf") && (
+        {singleEntry && singleEntry.entryData.includes("data:application/pdf") && (
           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-            <Viewer fileUrl={singleEntry.fileUrl}></Viewer>
+            <Viewer fileUrl={singleEntry.entryData}></Viewer>
           </Worker>
         )}
       </div>
