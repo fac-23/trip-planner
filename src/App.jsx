@@ -30,7 +30,7 @@ function App() {
           />
 
           <Route
-            path="/my-documents/:documentId"
+            path="/my-documents/:key"
             element={<SingleDoc documentsStore={documentsStore} />}
           />
 

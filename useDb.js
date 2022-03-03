@@ -37,16 +37,16 @@ export default function useDb(store) {
   }
 
   // get item from db and update item state
-  function getItem(key, setState) {
-    let item = "";
-    store
-      .getItem(key)
-      .then(function (value) {
-        item = value;
-      })
-      .then(() => setState(item))
-      .catch((err) => console.log(err));
-  }
+  // function getItem(key, setState) {
+  //   let item = "";
+  //   store
+  //     .getItem(key)
+  //     .then(function (value) {
+  //       item = value;
+  //     })
+  //     .then(() => setState(item))
+  //     .catch((err) => console.log(err));
+  // }
 
   // insert single item into db and update state
   function setItem(name, fileUrl) {
@@ -90,7 +90,6 @@ export default function useDb(store) {
 
   return {
     status,
-    getItem,
     setItem,
     getAll,
     removeItem,
