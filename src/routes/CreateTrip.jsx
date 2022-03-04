@@ -5,7 +5,7 @@ import StyledButton from "../components/StyledButton";
 import StyledInput from "../components/StyledInput";
 
 export default function CreateTrip({ tripsStore }) {
-  const { state: stateObject, getAll, setItem, removeItem } = useDb(tripsStore);
+  const { state: stateObject, setItem } = useDb(tripsStore);
 
   useEffect(() => {
     console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
