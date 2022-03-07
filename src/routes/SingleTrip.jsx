@@ -30,6 +30,12 @@ function SingleTrip({ tripsStore }) {
             setWeatherDesc(data.weather[0].description);
             setWeatherIcon(data.weather[0].icon);
           });
+
+        fetch(
+          `https://api.worldweatheronline.com/free/v2/tz.ashx?key=c07ccab182f94af5af7165917220703&q=SW1&format=json`
+        )
+          .then((res) => res.json())
+          .then((data) => console.log(data));
       })
       .catch((error) => console.log(error));
   }, [tripsStore, key]);
