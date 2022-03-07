@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { formatDate } from "../../helper-functions";
 import useDb from "../../useDb";
 import Layout from "../components/Layout";
 import StyledButton from "../components/StyledButton";
@@ -44,6 +45,7 @@ export default function CreateTrip({ tripsStore }) {
           <input
             type="date"
             id="start-date"
+            value = {formatDate(new Date())}
             onChange={(event) => {
               const startDate = event.target.value;
               setDates((prevDateObj) => {
@@ -52,10 +54,11 @@ export default function CreateTrip({ tripsStore }) {
             }}
           ></input>
 
-          <label htmlFor="start-date">End date</label>
+          <label htmlFor="end-date">End date</label>
           <input
             type="date"
-            id="start-date"
+            id="end-date"
+            value = {formatDate(new Date())}
             onChange={(event) => {
               const endDate = event.target.value;
               setDates((prevDateObj) => {
