@@ -61,7 +61,10 @@ function App() {
 
           <Route path="/my-trips/:tripId" element={<SingleTrip />} />
 
-          <Route path="/create-trip" element={<CreateTrip tripsStore={tripsStore} />} />
+          <Route
+            path="/create-trip"
+            element={<CreateTrip tripsStore={tripsStore} />}
+          />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>

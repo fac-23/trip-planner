@@ -4,9 +4,22 @@ import useDb from "../../useDb";
 import Layout from "../components/Layout";
 import StyledButton from "../components/StyledButton";
 import StyledInput from "../components/StyledInput";
+import axios from "axios";
+import Images from "../components/Images";
 
 export default function CreateTrip({ tripsStore }) {
   const { state: stateObject, setItem } = useDb(tripsStore);
+
+  // fetch unsplash api photos
+  const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+  const [images, setImages] = useState([]);
+  const fetchAPI = async () => {
+    const response = await axios.get(
+      `https://api.unsplash.com/photos/?client_id=${accessKey}`
+    );
+    const data = await response.data;
+    setImages(data);
+  };
 
   useEffect(() => {
     console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
@@ -14,8 +27,6 @@ export default function CreateTrip({ tripsStore }) {
 
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState({ start: "", end: "" });
-
-  // useEffect(() => console.log(dates, destination), [dates, destination]);
 
   return (
     <Fragment>
@@ -38,14 +49,17 @@ export default function CreateTrip({ tripsStore }) {
             value={destination}
             placeholder="Enter your destination"
           />
+          <button onClick={fetchAPI}>Search destination</button>
+          <div className="photos">
+            {images.length > 0 && <Images images={images} />}
+          </div>
 
           <p>When?</p>
-
           <label htmlFor="start-date">Start date</label>
           <input
             type="date"
             id="start-date"
-            value = {formatDate(new Date())}
+            value={formatDate(new Date())}
             onChange={(event) => {
               const startDate = event.target.value;
               setDates((prevDateObj) => {
@@ -53,12 +67,11 @@ export default function CreateTrip({ tripsStore }) {
               });
             }}
           ></input>
-
           <label htmlFor="end-date">End date</label>
           <input
             type="date"
             id="end-date"
-            value = {formatDate(new Date())}
+            value={formatDate(new Date())}
             onChange={(event) => {
               const endDate = event.target.value;
               setDates((prevDateObj) => {
@@ -66,7 +79,6 @@ export default function CreateTrip({ tripsStore }) {
               });
             }}
           ></input>
-
           <StyledButton>Add to My Trips</StyledButton>
         </form>
       </div>
