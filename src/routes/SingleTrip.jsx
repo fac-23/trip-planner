@@ -8,6 +8,7 @@ function SingleTrip({ tripsStore }) {
   const [singleEntry, setSingleEntry] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [weatherDesc, setWeatherDesc] = useState(null);
+  const [localDateTime, setLocalDateTime] = useState(null);
 
   let { key } = useParams();
 
@@ -35,7 +36,7 @@ function SingleTrip({ tripsStore }) {
           `https://api.worldweatheronline.com/premium/v1/tz.ashx?key=c07ccab182f94af5af7165917220703&q=${entry.name}&format=json`
         )
           .then((res) => res.json())
-          .then((data) => console.log(entry.name, data));
+          .then((data) => setLocalDateTime(data.data.time_zone[0].localtime));
       })
       .catch((error) => console.log(error));
   }, [tripsStore, key]);
@@ -46,6 +47,7 @@ function SingleTrip({ tripsStore }) {
 
       <div className="wrapper wrapper-singledoc-page center">
         <h1>{singleEntry && singleEntry.name}</h1>
+        <p>{localDateTime}</p>
 
         <div className="meteo">
           <img
