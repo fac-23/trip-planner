@@ -10,6 +10,7 @@ import Images from "../components/Images";
 export default function CreateTrip({ tripsStore }) {
   const { state: stateObject, setItem } = useDb(tripsStore);
 
+
   // fetch unsplash api photos
   const accessKey = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
   const [images, setImages] = useState([]);
@@ -21,9 +22,9 @@ export default function CreateTrip({ tripsStore }) {
     setImages(data);
   };
 
-  useEffect(() => {
-    console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
-  }, [stateObject]);
+  // useEffect(() => {
+  //   console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
+  // }, [stateObject]);
 
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState({ start: "", end: "" });

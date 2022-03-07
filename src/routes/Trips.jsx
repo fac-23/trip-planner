@@ -10,7 +10,7 @@ import Layout from "../components/Layout";
 import tripicon from "../assets/images/trips-icon.png";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
-console.log("Trip", trips);
+// console.log("Trip", trips);
 export default function Trips() {
   return (
     <Fragment>

@@ -214,6 +214,14 @@ form {
   flex-direction: column;
   align-items: center;
 }
+
+/*------------------------------------*\
+  SINGLE TRIP PAGE
+\*------------------------------------*/
+.meteo {
+  /* display: inline-flex; */
+  align-items: center;
+}
 /*------------------------------------*\
   MODIFIER CLASSES
 \*------------------------------------*/
