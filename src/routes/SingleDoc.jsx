@@ -21,7 +21,7 @@ function SingleDoc({ documentsStore }) {
       .getItem(key)
       .then((entry) => setSingleEntry(entry))
       .catch((error) => console.log(error));
-  }, []);
+  }, [documentsStore, key]);
 
   // every time this state gets updated, run this use effect, inside of this useEffect we will have the updated state available.
   // useEffect(() => {

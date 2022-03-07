@@ -57,11 +57,17 @@ function App() {
             element={<SingleDoc documentsStore={documentsStore} />}
           />
 
-          <Route path="/my-trips" element={<Trips />} />
+          <Route path="/my-trips" element={<Trips tripsStore={tripsStore} />} />
 
-          <Route path="/my-trips/:tripId" element={<SingleTrip />} />
+          <Route
+            path="/my-trips/:key"
+            element={<SingleTrip tripsStore={tripsStore} />}
+          />
 
-          <Route path="/create-trip" element={<CreateTrip tripsStore={tripsStore} />} />
+          <Route
+            path="/create-trip"
+            element={<CreateTrip tripsStore={tripsStore} />}
+          />
 
           <Route path="*" element={<PageNotFound />} />
         </Routes>
