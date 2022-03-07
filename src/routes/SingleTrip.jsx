@@ -32,10 +32,10 @@ function SingleTrip({ tripsStore }) {
           });
 
         fetch(
-          `https://api.worldweatheronline.com/free/v2/tz.ashx?key=c07ccab182f94af5af7165917220703&q=SW1&format=json`
+          `https://api.worldweatheronline.com/premium/v1/tz.ashx?key=c07ccab182f94af5af7165917220703&q=${entry.name}&format=json`
         )
           .then((res) => res.json())
-          .then((data) => console.log(data));
+          .then((data) => console.log(entry.name, data));
       })
       .catch((error) => console.log(error));
   }, [tripsStore, key]);
