@@ -19,6 +19,15 @@ form {
   flex-direction: column;
 }
 
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-font);
+}
+
 .wrapper {
   height: 100vh;
   margin-top: 60px;
@@ -78,7 +87,6 @@ form {
 
 .links {
   text-align: center;
-  list-style: none;
   font-size: 1rem;
   display: flex;
   flex-direction: row;
@@ -147,7 +155,7 @@ form {
 .plus-icon {
   position: absolute;
   left: 0;
-  width: 50px;
+  width: 41px;
   margin-left: 0;
   background-color: #7ddbd6;
   padding: 0.5rem;

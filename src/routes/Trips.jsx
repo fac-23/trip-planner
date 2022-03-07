@@ -1,17 +1,24 @@
-import React, { Fragment } from "react";
-import trips from "../dummy-data";
+import React, { Fragment, useEffect } from "react";
 
 // components
 import StyledLink from "../components/StyledLink";
-// import StyledTrips from "../components/StyledTrips";
 import Layout from "../components/Layout";
+import TripCard from "../components/TripCard";
 
 // images
 import tripicon from "../assets/images/trips-icon.png";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faPlus } from "@fortawesome/free-solid-svg-icons";
-// console.log("Trip", trips);
-export default function Trips() {
+
+// Helper function files
+import useDb from "../../useDb.js";
+
+export default function Trips({ tripsStore }) {
+  const { state: stateObject, getAll } = useDb(tripsStore);
+
+  const trips = getAll();
+
+  useEffect(() => {
+    console.log("stateObject FROM TRIPS", stateObject);
+  }, [stateObject]);
   return (
     <Fragment>
       <Layout pageTitle="My Trips" />
@@ -25,17 +32,20 @@ export default function Trips() {
           </StyledLink>
         </section>
 
-        <section className="trip-card">
+        <section className="trips">
           <ul className="trips__list stack-md">
-            <div>
-              {trips.map((trip) => (
-                <p key={trip.name}>
-                  {trip.name}
-                  {trip.date}
-                </p>
+            {trips &&
+              trips.map((trip) => (
+                <li key={trip.key} className="trips__listItem">
+                  <TripCard
+                    dynamicLink={`/my-trips/${trip.key}`}
+                    cityName={trip.name}
+                    startDate={trip.entryData.start.replaceAll("-", "/")}
+                    endDate={trip.entryData.end.replaceAll("-", "/")}
+                    cityImage={trip.image}
+                  ></TripCard>
+                </li>
               ))}
-            </div>
-            {/* <StyledTrips /> */}
           </ul>
         </section>
       </div>

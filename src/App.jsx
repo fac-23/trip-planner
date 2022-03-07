@@ -4,9 +4,6 @@ import "./css/App.css";
 // Import React Router packages
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Import Bootstrap
-import "bootstrap/dist/css/bootstrap.min.css";
-
 // Import Pages components
 import Home from "./routes/Home";
 import PageNotFound from "./routes/PageNotFound";
@@ -23,6 +20,7 @@ const GlobalStyles = createGlobalStyle`
     --color-font: #333;
     --color-primary: #00b9ad;
     --color-primary-light: #b3eae7;
+    --color-light-grey: #f4f4f4;
   }
 `;
 
