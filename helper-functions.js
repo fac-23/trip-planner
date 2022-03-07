@@ -18,4 +18,17 @@ function imageInputHandler(event, setState) {
   }
 }
 
-export { imageInputHandler };
+function formatDate(date) {
+  // const date = new Date();
+  const [year, month, day] = [
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate(),
+  ];
+
+  return `${year}-${(month + 1).toString().padStart(2, 0)}-${day
+    .toString()
+    .padStart(2, 0)}`;
+}
+
+export { imageInputHandler, formatDate };
