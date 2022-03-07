@@ -1,5 +1,10 @@
 {
-  "extends": ["eslint:recommended", "react-minimal"],
+  "plugins": ["cypress"],
+  "extends": [
+    "eslint:recommended",
+    "react-minimal",
+    "plugin:cypress/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2022
   }
