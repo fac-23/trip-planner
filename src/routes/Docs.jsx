@@ -62,6 +62,7 @@ function Docs({ documentsStore }) {
               type="file"
               accept=".jpg,.jpeg,.gif,.png,.pdf"
               onChange={(event) => imageInputHandler(event, setImage)}
+              required
             />
 
             <label htmlFor="file-name">Enter a name for your file</label>
@@ -71,6 +72,7 @@ function Docs({ documentsStore }) {
               onChange={(event) => setFileName(event.target.value)}
               value={fileName}
               placeholder="Enter a name"
+              required
             />
 
             <StyledButton>
