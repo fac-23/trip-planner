@@ -1,7 +1,7 @@
-import React, { Fragment, useEffect } from "react";
-
+import React, { Fragment } from "react";
+// import React, { Fragment, useEffect } from "react";
 // components
-import StyledLink from "../components/StyledLink";
+import StyledLink from "../components/styled/StyledLink";
 import Layout from "../components/Layout";
 import TripCard from "../components/TripCard";
 
@@ -9,16 +9,20 @@ import TripCard from "../components/TripCard";
 import tripicon from "../assets/images/trips-icon.png";
 
 // Helper function files
-import useDb from "../../useDb.js";
+import useDb from "../hooks/useDb.js";
 
 export default function Trips({ tripsStore }) {
-  const { state: stateObject, getAll } = useDb(tripsStore);
+  const {
+    // state: stateObject,
+    getAll,
+    removeItem,
+  } = useDb(tripsStore);
 
   const trips = getAll();
 
-  useEffect(() => {
-    console.log("stateObject FROM TRIPS", stateObject);
-  }, [stateObject]);
+  // useEffect(() => {
+  //   console.log("stateObject FROM TRIPS", stateObject);
+  // }, [stateObject]);
   return (
     <Fragment>
       <Layout pageTitle="My Trips" />
@@ -26,7 +30,7 @@ export default function Trips({ tripsStore }) {
       <div className="wrapper wrapper-trips-page center stack-lg">
         <img src={tripicon} alt="icon of a trip" className="trip-icon"></img>
 
-        <section className="trips">
+        <section className="create-trip">
           <StyledLink to="/create-trip">
             CREATE NEW TRIP <strong>+</strong>
           </StyledLink>
@@ -43,6 +47,9 @@ export default function Trips({ tripsStore }) {
                     startDate={trip.entryData.start.replaceAll("-", "/")}
                     endDate={trip.entryData.end.replaceAll("-", "/")}
                     cityImage={trip.image}
+                    tripsStore={tripsStore}
+                    trip={trip}
+                    removeItem={removeItem}
                   ></TripCard>
                 </li>
               ))}

@@ -1,16 +1,16 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { formatDate } from "../../helper-functions";
-import useDb from "../../useDb";
+import React, { Fragment, useState } from "react";
+import { formatDate } from "../helper-functions";
+import useDb from "../hooks/useDb.js";
 import Layout from "../components/Layout";
-import StyledButton from "../components/StyledButton";
-import StyledInput from "../components/StyledInput";
+import StyledButton from "../components/styled/StyledButton";
+import StyledInput from "../components/styled/StyledInput";
 
 export default function CreateTrip({ tripsStore }) {
-  const { state: stateObject, setItem } = useDb(tripsStore);
+  const { setItem } = useDb(tripsStore);
 
-  useEffect(() => {
-    console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
-  }, [stateObject]);
+  // useEffect(() => {
+  //   console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
+  // }, [stateObject]);
 
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState({ start: "", end: "" });

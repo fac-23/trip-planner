@@ -213,7 +213,7 @@ a {
 
 .trip-icon {
   width: 100%;
-  max-width: 150px;
+  max-width: 100px;
 }
 
 .wrapper-trips-page {
@@ -266,5 +266,5 @@ a {
 }
 
 .stack-sm > * + * {
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
 }
