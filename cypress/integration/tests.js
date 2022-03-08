@@ -20,8 +20,8 @@ describe("visit all the pages", () => {
     cy.visit("/single-trip");
     cy.url().should("include", "/single-trip");
     // Single Trips Page
-    cy.visit("/pagenotfound");
-    cy.url().should("include", "/singggle-trip");
+    cy.visit("/singggle-trip");
+    cy.url().should("include", "Page not found");
     // Error page - Page not found
   });
 });
@@ -32,7 +32,9 @@ describe("visit all the pages", () => {
 describe("user can add a document", () => {
   it("can click on add button on my documents page", () => {
     cy.visit("/my-documents");
-    cy.click("img[className=plus-icon]").get("label").contains("pdf");
+    cy.get('img[className="plus-icon"]');
+    cy.click();
+    cy.get("label").contains("pdf");
     cy.url("/single-doc");
   });
 });
@@ -42,9 +44,11 @@ describe("user can add a document", () => {
 
 describe("home button and back button", () => {
   it("can go to home page and back a page", () => {
-    cy.click('img[className="home"]');
+    cy.get('img[className="home"]');
+    cy.click();
     cy.url("/");
-    cy.click('img[className="arrowBack"]');
+    cy.get('img[className="arrowBack"]');
+    cy.click();
     cy.go("back");
   });
 });
