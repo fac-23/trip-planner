@@ -12,7 +12,7 @@ import tripicon from "../assets/images/trips-icon.png";
 import useDb from "../../useDb.js";
 
 export default function Trips({ tripsStore }) {
-  const { state: stateObject, getAll } = useDb(tripsStore);
+  const { state: stateObject, getAll, removeItem } = useDb(tripsStore);
 
   const trips = getAll();
 
@@ -45,6 +45,7 @@ export default function Trips({ tripsStore }) {
                     cityImage={trip.image}
                     tripsStore={tripsStore}
                     trip={trip}
+                    removeItem={removeItem}
                   ></TripCard>
                 </li>
               ))}

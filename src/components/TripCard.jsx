@@ -4,9 +4,6 @@ import React, { Fragment } from "react";
 import city from "../assets/images/city.jpg";
 import bin from "../assets/images/bin.png";
 
-// Helper function files
-import useDb from "../../useDb.js";
-
 // import styled component
 import StyledTripCard from "./styled/StyledTripCard";
 import { Link } from "react-router-dom";
@@ -17,11 +14,9 @@ function TripCard({
   endDate,
   cityImage,
   dynamicLink,
-  tripsStore,
   trip,
+  removeItem,
 }) {
-  const { removeItem } = useDb(tripsStore);
-
   return (
     <Fragment>
       <StyledTripCard className="trip">
@@ -42,6 +37,7 @@ function TripCard({
           value={trip.key}
           onClick={() => removeItem(trip.key)}
           className="trip__delete-btn"
+          aria-label="Delete trip"
         >
           <img src={bin} alt="a bin" className="trip__delete-btn--icon"></img>
         </button>
