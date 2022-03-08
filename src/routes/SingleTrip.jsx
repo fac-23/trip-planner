@@ -8,6 +8,7 @@ function SingleTrip({ tripsStore }) {
   const [singleEntry, setSingleEntry] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [weatherDesc, setWeatherDesc] = useState(null);
+  const [localTime, setLocalTime] = useState(null);
 
   let { key } = useParams();
 
@@ -30,6 +31,15 @@ function SingleTrip({ tripsStore }) {
             setWeatherDesc(data.weather[0].description);
             setWeatherIcon(data.weather[0].icon);
           });
+
+        fetch(
+          `https://api.worldweatheronline.com/premium/v1/tz.ashx?key=c07ccab182f94af5af7165917220703&q=${entry.name}&format=json`
+        )
+          .then((res) => res.json())
+          .then((data) => {
+            const dateTimeArr = data.data.time_zone[0].localtime.split(" ");
+            setLocalTime(dateTimeArr[1]);
+          });
       })
       .catch((error) => console.log(error));
   }, [tripsStore, key]);
@@ -40,6 +50,7 @@ function SingleTrip({ tripsStore }) {
 
       <div className="wrapper wrapper-singledoc-page center">
         <h1>{singleEntry && singleEntry.name}</h1>
+        <p>Local time: {localTime}</p>
 
         <div className="meteo">
           <img
