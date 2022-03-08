@@ -5,6 +5,8 @@ import Layout from "../components/Layout";
 import StyledButton from "../components/styled/StyledButton";
 import StyledInput from "../components/styled/StyledInput";
 
+import { Link } from "react-router-dom";
+
 export default function CreateTrip({ tripsStore }) {
   const { setItem } = useDb(tripsStore);
 
@@ -44,7 +46,7 @@ export default function CreateTrip({ tripsStore }) {
           <p>When?</p>
 
           <label htmlFor="start-date">Start date</label>
-          <input
+          <StyledInput
             type="date"
             id="start-date"
             value={defaultStartDate}
@@ -55,10 +57,10 @@ export default function CreateTrip({ tripsStore }) {
                 return { ...prevDateObj, start: startDate };
               });
             }}
-          ></input>
+          ></StyledInput>
 
           <label htmlFor="end-date">End date</label>
-          <input
+          <StyledInput
             type="date"
             id="end-date"
             value={defaultEndDate}
@@ -69,9 +71,11 @@ export default function CreateTrip({ tripsStore }) {
                 return { ...prevDateObj, end: endDate };
               });
             }}
-          ></input>
+          ></StyledInput>
 
-          <StyledButton>Add to My Trips</StyledButton>
+          <Link to="/my-trips">
+            <StyledButton>Add to My Trips</StyledButton>
+          </Link>
         </form>
       </div>
     </Fragment>
