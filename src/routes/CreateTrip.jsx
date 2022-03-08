@@ -8,9 +8,9 @@ import StyledInput from "../components/styled/StyledInput";
 export default function CreateTrip({ tripsStore }) {
   const { setItem } = useDb(tripsStore);
 
-  useEffect(() => {
-    console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
-  }, [stateObject]);
+  // useEffect(() => {
+  //   console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
+  // }, [stateObject]);
 
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState({ start: "", end: "" });
@@ -48,7 +48,6 @@ export default function CreateTrip({ tripsStore }) {
             type="date"
             id="start-date"
             value={defaultStartDate}
-
             onChange={(event) => {
               const startDate = event.target.value;
               setDefaultStartDate(startDate);
@@ -62,9 +61,8 @@ export default function CreateTrip({ tripsStore }) {
           <input
             type="date"
             id="end-date"
-
             value={defaultEndDate}
-              onChange={(event) => {
+            onChange={(event) => {
               const endDate = event.target.value;
               setDefaultEndDate(endDate);
               setDates((prevDateObj) => {

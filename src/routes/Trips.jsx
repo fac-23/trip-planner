@@ -4,6 +4,7 @@ import React, { Fragment, useEffect } from "react";
 import StyledLink from "../components/styled/StyledLink";
 import Layout from "../components/Layout";
 import TripCard from "../components/TripCard";
+// import axios from "react";
 
 // images
 import tripicon from "../assets/images/trips-icon.png";
@@ -18,6 +19,7 @@ export default function Trips({ tripsStore }) {
 
   useEffect(() => {
     console.log("stateObject FROM TRIPS", stateObject);
+    console.log("trips", trips);
   }, [stateObject]);
   return (
     <Fragment>
