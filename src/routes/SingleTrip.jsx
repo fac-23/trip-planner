@@ -27,7 +27,6 @@ function SingleTrip({ tripsStore }) {
         )
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data.main.temp.padEnd());
             setWeatherDesc(data.weather[0].description);
             setWeatherIcon(data.weather[0].icon);
           });
