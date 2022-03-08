@@ -1,3 +1,4 @@
+import { doc } from "prettier";
 import React, { Fragment, useEffect, useState } from "react";
 import { formatDate } from "../../helper-functions";
 import useDb from "../../useDb";
@@ -14,6 +15,10 @@ export default function CreateTrip({ tripsStore }) {
 
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState({ start: "", end: "" });
+  const [defaultStartDate, setDefaultStartDate] = useState(
+    formatDate(new Date())
+  );
+  const [defaultEndDate, setDefaultEndDate] = useState(formatDate(new Date()));
 
   // useEffect(() => console.log(dates, destination), [dates, destination]);
 
@@ -45,9 +50,10 @@ export default function CreateTrip({ tripsStore }) {
           <input
             type="date"
             id="start-date"
-            value = {formatDate(new Date())}
+            value={defaultStartDate}
             onChange={(event) => {
               const startDate = event.target.value;
+              setDefaultStartDate(startDate);
               setDates((prevDateObj) => {
                 return { ...prevDateObj, start: startDate };
               });
@@ -58,9 +64,10 @@ export default function CreateTrip({ tripsStore }) {
           <input
             type="date"
             id="end-date"
-            value = {formatDate(new Date())}
+            value={defaultEndDate}
             onChange={(event) => {
               const endDate = event.target.value;
+              setDefaultEndDate(endDate);
               setDates((prevDateObj) => {
                 return { ...prevDateObj, end: endDate };
               });
