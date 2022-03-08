@@ -1,4 +1,3 @@
-import { doc } from "prettier";
 import React, { Fragment, useEffect, useState } from "react";
 import { formatDate } from "../../helper-functions";
 import useDb from "../../useDb";
@@ -9,9 +8,9 @@ import StyledInput from "../components/StyledInput";
 export default function CreateTrip({ tripsStore }) {
   const { state: stateObject, setItem } = useDb(tripsStore);
 
-  // useEffect(() => {
-  //   console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
-  // }, [stateObject]);
+  useEffect(() => {
+    console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
+  }, [stateObject]);
 
   const [destination, setDestination] = useState("");
   const [dates, setDates] = useState({ start: "", end: "" });
@@ -19,8 +18,6 @@ export default function CreateTrip({ tripsStore }) {
     formatDate(new Date())
   );
   const [defaultEndDate, setDefaultEndDate] = useState(formatDate(new Date()));
-
-  // useEffect(() => console.log(dates, destination), [dates, destination]);
 
   return (
     <Fragment>
