@@ -21,7 +21,13 @@ export default function ToDoList({ toDoListStore }) {
         {state.data &&
           state.data.map((item) => (
             <li key={item.key} className="flex-row">
-              <ToDoItem itemName={item.name} />
+              <ToDoItem
+                toDoListStore={toDoListStore}
+                itemKey={item.key}
+                itemName={item.name}
+                item={item}
+                isCompleted={item.entryData}
+              />
             </li>
           ))}
       </ul>
