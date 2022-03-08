@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 
 // components
-import StyledLink from "../components/StyledLink";
+import StyledLink from "../components/styled/StyledLink";
 import Layout from "../components/Layout";
 import TripCard from "../components/TripCard";
 
@@ -43,6 +43,8 @@ export default function Trips({ tripsStore }) {
                     startDate={trip.entryData.start.replaceAll("-", "/")}
                     endDate={trip.entryData.end.replaceAll("-", "/")}
                     cityImage={trip.image}
+                    tripsStore={tripsStore}
+                    trip={trip}
                   ></TripCard>
                 </li>
               ))}

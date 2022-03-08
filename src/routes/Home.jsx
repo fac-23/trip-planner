@@ -1,5 +1,5 @@
 import React from "react";
-import StyledLink from "../components/StyledLink";
+import StyledLink from "../components/styled/StyledLink";
 import logo from "../assets/images/logo.png";
 
 export default function Home() {
