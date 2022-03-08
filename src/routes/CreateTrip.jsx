@@ -1,12 +1,12 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { formatDate } from "../../helper-functions";
 import useDb from "../../useDb";
 import Layout from "../components/Layout";
-import StyledButton from "../components/StyledButton";
-import StyledInput from "../components/StyledInput";
+import StyledButton from "../components/styled/StyledButton";
+import StyledInput from "../components/styled/StyledInput";
 
 export default function CreateTrip({ tripsStore }) {
-  const { state: stateObject, setItem } = useDb(tripsStore);
+  const { setItem } = useDb(tripsStore);
 
   useEffect(() => {
     console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
@@ -48,6 +48,7 @@ export default function CreateTrip({ tripsStore }) {
             type="date"
             id="start-date"
             value={defaultStartDate}
+
             onChange={(event) => {
               const startDate = event.target.value;
               setDefaultStartDate(startDate);
@@ -61,8 +62,9 @@ export default function CreateTrip({ tripsStore }) {
           <input
             type="date"
             id="end-date"
+
             value={defaultEndDate}
-            onChange={(event) => {
+              onChange={(event) => {
               const endDate = event.target.value;
               setDefaultEndDate(endDate);
               setDates((prevDateObj) => {

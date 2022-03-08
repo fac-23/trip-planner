@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from "react";
 
 // components
-import StyledLink from "../components/StyledLink";
+import StyledLink from "../components/styled/StyledLink";
 import Layout from "../components/Layout";
 import TripCard from "../components/TripCard";
 
@@ -12,7 +12,7 @@ import tripicon from "../assets/images/trips-icon.png";
 import useDb from "../../useDb.js";
 
 export default function Trips({ tripsStore }) {
-  const { state: stateObject, getAll } = useDb(tripsStore);
+  const { state: stateObject, getAll, removeItem } = useDb(tripsStore);
 
   const trips = getAll();
 
@@ -43,6 +43,9 @@ export default function Trips({ tripsStore }) {
                     startDate={trip.entryData.start.replaceAll("-", "/")}
                     endDate={trip.entryData.end.replaceAll("-", "/")}
                     cityImage={trip.image}
+                    tripsStore={tripsStore}
+                    trip={trip}
+                    removeItem={removeItem}
                   ></TripCard>
                 </li>
               ))}

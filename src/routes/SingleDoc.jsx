@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { useParams } from "react-router-dom";
 
 // components
-import StyledImgPreview from "../components/StyledImgPreview";
+import StyledImgPreview from "../components/styled/StyledImgPreview";
 import Layout from "../components/Layout";
 
 // import web worker to process the most tasks which take time such as parsing and rendering a PDF document

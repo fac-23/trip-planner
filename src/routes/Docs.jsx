@@ -9,8 +9,8 @@ import useDb from "../../useDb.js";
 import { imageInputHandler } from "../../helper-functions.js";
 
 // components
-import StyledButton from "../components/StyledButton";
-import StyledInput from "../components/StyledInput";
+import StyledButton from "../components/styled/StyledButton";
+import StyledInput from "../components/styled/StyledInput";
 import Layout from "../components/Layout";
 
 // images
