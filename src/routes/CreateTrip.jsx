@@ -1,14 +1,18 @@
 import React, { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// Helper functions
 import { formatDate } from "../helper-functions";
 import useDb from "../hooks/useDb.js";
+
+// Components
 import Layout from "../components/Layout";
 import StyledButton from "../components/styled/StyledButton";
 import StyledInput from "../components/styled/StyledInput";
 
-import { Link } from "react-router-dom";
-
 export default function CreateTrip({ tripsStore }) {
   const { setItem } = useDb(tripsStore);
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //   console.log("stateObject FROM USEEFFECT IN TRIPS", stateObject);
@@ -32,6 +36,7 @@ export default function CreateTrip({ tripsStore }) {
             event.preventDefault();
             setItem(destination, dates);
             setDestination("");
+            navigate("/my-trips");
           }}
         >
           <label htmlFor="destination">Where to?</label>
@@ -41,6 +46,7 @@ export default function CreateTrip({ tripsStore }) {
             onChange={(event) => setDestination(event.target.value)}
             value={destination}
             placeholder="Enter your destination"
+            required
           />
 
           <p>When?</p>
@@ -73,9 +79,7 @@ export default function CreateTrip({ tripsStore }) {
             }}
           ></StyledInput>
 
-          <Link to="/my-trips">
-            <StyledButton>Add to My Trips</StyledButton>
-          </Link>
+          <StyledButton>Add to My Trips</StyledButton>
         </form>
       </div>
     </Fragment>

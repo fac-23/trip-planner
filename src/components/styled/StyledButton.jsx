@@ -13,7 +13,6 @@ const StyledButton = styled.button`
   align-items: center;
   position: relative;
   transition: transform 0.2s, box-shadow 0.2s;
-  margin: 0 auto;
 
   :hover {
     transform: scale(1.02);
