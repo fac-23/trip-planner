@@ -4,6 +4,20 @@ import "./css/App.css";
 // Import React Router packages
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// PWA config
+
+// commented out as it is registered as a plugin and vite knows where to look for it
+// eslint-disable-next-line import/no-unresolved
+import { registerSW } from "virtual:pwa-register";
+
+if (
+  "serviceWorker" in navigator
+
+  // && window.location.includes("/localhost/") === false
+) {
+  registerSW();
+}
+
 // Import Pages components
 import Home from "./routes/Home";
 import PageNotFound from "./routes/PageNotFound";
