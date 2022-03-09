@@ -26,11 +26,6 @@ export default function useDb(store) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // console log in a useEffect to see the state after it has been set
-  useEffect(() => {
-    console.log("STATE FROM USEEFFECT IN useDB", state);
-  }, [state]);
-
   // return the array containing all the data (array of objects)
   function getAll() {
     return data;
