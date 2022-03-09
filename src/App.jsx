@@ -37,10 +37,6 @@ let tripsStore = localforage.createInstance({
   name: "tripsStore",
 });
 
-let toDoListStore = localforage.createInstance({
-  name: "toDoListStore",
-});
-
 function App() {
   return (
     <div>
@@ -63,7 +59,7 @@ function App() {
 
           <Route
             path="/my-trips/:key"
-            element={<SingleTrip tripsStore={tripsStore} toDoListStore={toDoListStore} />}
+            element={<SingleTrip tripsStore={tripsStore} />}
           />
 
           <Route
