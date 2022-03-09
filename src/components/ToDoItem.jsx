@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from "react";
 
 export default function ToDoItem({
-  toDoListStore,
-  itemKey,
-  itemName,
+  toDoName,
+  toDoKey,
   isCompleted,
+  removeItem,
 }) {
   const [readOnly, setReadOnly] = useState(false);
 
@@ -12,13 +12,15 @@ export default function ToDoItem({
     <Fragment>
       <div>
         <input type="checkbox" defaultChecked={isCompleted} />
-        <input type="text" defaultValue={itemName} readOnly={readOnly} />
+        <input type="text" placeholder={toDoName} readOnly={readOnly} />
       </div>
       <div>
         <button onClick={() => setReadOnly(!readOnly)}>
           {readOnly ? "Edit" : "Save"}
         </button>
-        <button>Delete</button>
+        <button value={toDoKey} onClick={() => removeItem(toDoKey)}>
+          Delete
+        </button>
       </div>
     </Fragment>
   );

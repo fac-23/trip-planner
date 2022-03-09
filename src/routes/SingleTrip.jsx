@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Layout from "../components/Layout";
 import ToDoList from "../components/ToDoList";
 
-function SingleTrip({ tripsStore, toDoListStore }) {
+function SingleTrip({ tripsStore }) {
   const [singleEntry, setSingleEntry] = useState(null);
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [weatherDesc, setWeatherDesc] = useState(null);
@@ -60,7 +60,7 @@ function SingleTrip({ tripsStore, toDoListStore }) {
           ></img>
           <p>{weatherDesc}</p>
         </div>
-        <ToDoList toDoListStore={toDoListStore} />
+        <ToDoList />
       </div>
     </Fragment>
   );
