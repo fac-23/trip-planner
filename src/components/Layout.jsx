@@ -29,8 +29,8 @@ function Layout({ pageTitle }) {
   return (
     <div>
       <nav className="top-navigation">
-        <button className="btn" onClick={() => navigate(-1)}>
-          <img src={arrowBack} className="arrowBack"></img>
+        <button onClick={() => navigate(-1)} className="arrowBack">
+          <img src={arrowBack} className="arrowBack--img"></img>
         </button>
         <Link to={"/"}>
           <img src={home} className="home" />
@@ -40,11 +40,11 @@ function Layout({ pageTitle }) {
 
       <nav className="bottom-navigation">
         <Nav>
-          <div className="links">
+          <div className="bottomNavlinks">
             {tabs.map((tab, index) => (
               <NavItem key={`tab-${index}`}>
                 <NavLink to={tab.route}>
-                  <div className="iconBox">
+                  <div className="iconBox stack-sm">
                     <FontAwesomeIcon
                       className="icons"
                       size="lg"
