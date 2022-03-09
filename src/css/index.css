@@ -8,7 +8,8 @@ BASE
 }
 
 body {
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 160px;
   width: 100vw;
   font-family: "Raleway", sans-serif;
   color: var(--color-font);
@@ -29,7 +30,6 @@ a {
 }
 
 .wrapper {
-  height: 100vh;
   margin-top: 60px;
 }
 
@@ -76,7 +76,7 @@ a {
   background-color: var(--color-primary);
   position: fixed;
   z-index: 99;
-  height: auto;
+  height: 50px;
   bottom: 0;
   width: 100%;
   display: flex;
@@ -171,8 +171,6 @@ a {
 .documents__list {
   list-style: none;
   text-align: left;
-  height: 100%;
-  margin-bottom: 80px;
 }
 
 .documents__listItem {
