@@ -1,81 +1,40 @@
-import React, { Fragment, useState } from "react";
-
-// images
+import React, { Fragment, useState, useEffect } from "react";
+// import { useParams } from "react-router-dom";
 import city from "../assets/images/city.jpg";
 import bin from "../assets/images/bin.png";
 
 // import styled component
 import StyledTripCard from "./styled/StyledTripCard";
 import { Link } from "react-router-dom";
-import axios from "react";
+// import axios from "react";
 
 function TripCard({
   cityName,
   startDate,
   endDate,
-  cityImage,
   dynamicLink,
   trip,
   removeItem,
 }) {
-  // Attempt with useState
-
-  const [image, setImage] = useState([]);
-  const getImage = () => {
-    axios
-      .get(
-        "https://api.unsplash.com/photos/random/?client_id=3mexP1zmtlv1xDjsia73HbW7EQ0gHC-mjLeSx59JQpw"
-      )
-      .then((response) => {
-        setImage(response.data.results);
-      });
-  };
-
-  // Attempt with fetch
-
-  // let clientId = "3mexP1zmtlv1xDjsia73HbW7EQ0gHC-mjLeSx59JQpw";
-  // let url = `https://api.unsplash.com/photos/random/?client_id=${clientId}`;
-
-  // fetch(url)
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (jsonData) {
-  //     console.log(jsonData);
-  //   });
-
-  // Attempt with useEffect
-
-  // const accessKey = "3mexP1zmtlv1xDjsia73HbW7EQ0gHC-mjLeSx59JQpw";
-  // useEffect(() => {
-  //   axios.get(
-  //     (`https://api.unsplash.com/photos/random`,
-  //     {
-  //       params: { query: cityName },
-  //       headers: {
-  //         Authorization: `Client-ID ${accessKey}`,
-  //       },
-  //     }).then((response) => {
-  //       console.log(response);
-  //     })
-  //   );
-  // });
+  const [imageUrl, setImageUrl] = useState(null);
+  useEffect(() => {
+    fetch(
+      `https://api.unsplash.com/search/photos?query=${cityName}&per_page=1&client_id=3mexP1zmtlv1xDjsia73HbW7EQ0gHC-mjLeSx59JQpw`
+    )
+      .then((response) => response.json())
+      .then((data) => setImageUrl(data.results[0].urls.small));
+  });
 
   return (
     <Fragment>
       <StyledTripCard className="trip">
         <Link to={dynamicLink}>
           <div className="trip__image--container">
-            {image.map((value, index) => {
-              <div key={index}>
-                <img
-                  className="trip__image"
-                  src={value.urls.small || cityImage || city}
-                  alt="destination"
-                />
-              </div>;
-            })}
-            <button onClick={getImage}>Img</button>
+            <img
+              className="trip__image"
+              src={imageUrl || city}
+              alt="destination"
+            />
           </div>
           <div className="trip__info stack-sm">
             <p className="trip__cityName">{cityName}</p>

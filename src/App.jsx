@@ -12,6 +12,7 @@ import SingleDoc from "./routes/SingleDoc";
 import Trips from "./routes/Trips";
 import SingleTrip from "./routes/SingleTrip";
 import CreateTrip from "./routes/CreateTrip";
+// import SearchPhotos from "./SearchPhotos";
 
 // Import global styles - CSS variables
 import { createGlobalStyle } from "styled-components";
@@ -70,6 +71,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+      {/* <SearchPhotos /> */}
     </div>
   );
 }
