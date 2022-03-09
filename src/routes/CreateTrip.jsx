@@ -39,12 +39,13 @@ export default function CreateTrip({ tripsStore }) {
             onChange={(event) => setDestination(event.target.value)}
             value={destination}
             placeholder="Enter your destination"
+            required
           />
 
           <p>When?</p>
 
           <label htmlFor="start-date">Start date</label>
-          <input
+          <StyledInput
             type="date"
             id="start-date"
             value={defaultStartDate}
@@ -55,10 +56,10 @@ export default function CreateTrip({ tripsStore }) {
                 return { ...prevDateObj, start: startDate };
               });
             }}
-          ></input>
+          ></StyledInput>
 
           <label htmlFor="end-date">End date</label>
-          <input
+          <StyledInput
             type="date"
             id="end-date"
             value={defaultEndDate}
@@ -69,7 +70,7 @@ export default function CreateTrip({ tripsStore }) {
                 return { ...prevDateObj, end: endDate };
               });
             }}
-          ></input>
+          ></StyledInput>
 
           <StyledButton>Add to My Trips</StyledButton>
         </form>

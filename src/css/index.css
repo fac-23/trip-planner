@@ -20,6 +20,8 @@ form {
 }
 
 button {
+  background: none;
+  border: none;
   cursor: pointer;
 }
 
@@ -62,6 +64,10 @@ a {
   top: 50%;
   transform: translateY(-50%);
   left: 1rem;
+}
+
+.arrowBack--img {
+  width: 100%;
 }
 
 .home {

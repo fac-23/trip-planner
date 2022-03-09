@@ -7,7 +7,6 @@ const StyledInput = styled.input`
   padding: 0.8rem;
   max-width: 300px;
   box-shadow: 1px 4px 2px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
