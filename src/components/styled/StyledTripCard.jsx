@@ -61,7 +61,8 @@ const StyledTripCard = styled.div`
   }
 
   .trip__image--container {
-    max-width: 70px;
+    width: 80px;
+    height: 80px;
     flex: 1 1 auto;
   }
 
