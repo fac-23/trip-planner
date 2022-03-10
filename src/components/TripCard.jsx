@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 
 // images
 import city from "../assets/images/city.jpg";
@@ -12,17 +12,29 @@ function TripCard({
   cityName,
   startDate,
   endDate,
-  cityImage,
   dynamicLink,
   trip,
   removeItem,
 }) {
+  const [imageUrl, setImageUrl] = useState(null);
+
+  useEffect(() => {
+    fetch(
+      `https://api.unsplash.com/search/photos?query=${cityName}&per_page=1&client_id=3mexP1zmtlv1xDjsia73HbW7EQ0gHC-mjLeSx59JQpw`
+    )
+      .then((data) => data.json())
+      .then((data) =>
+        // console.log("DATA FROM TRIP CARD", data.results[0].urls.small)
+        setImageUrl(data.results[0].urls.small)
+      );
+  });
+
   return (
     <Fragment>
       <StyledTripCard className="trip">
         <Link to={dynamicLink}>
           <div className="trip__image--container">
-            <img className="trip__image" src={cityImage || city}></img>
+            <img className="trip__image" src={imageUrl || city}></img>
           </div>
           <div className="trip__info stack-sm">
             <p className="trip__cityName">{cityName}</p>

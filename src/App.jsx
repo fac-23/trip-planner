@@ -10,9 +10,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // eslint-disable-next-line import/no-unresolved
 import { registerSW } from "virtual:pwa-register";
 
+// If we have a service worker and we are not in development, start the service worker. If line 16 is commented out we will instead be able to start the service worker while we are in the development phase to be able to work on it.
 if (
   "serviceWorker" in navigator
-
   // && window.location.includes("/localhost/") === false
 ) {
   registerSW();
