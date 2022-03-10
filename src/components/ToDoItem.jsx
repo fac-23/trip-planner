@@ -1,12 +1,14 @@
-import React, { Fragment, useState, useRef } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import StyledToDoItem from "./styled/StyledToDoItem";
 import bin from "../assets/images/bin.png";
 
-export default function ToDoItem({ toDoKey, removeItem, editItem }) {
+export default function ToDoItem({ toDoKey, toDoName, removeItem, editItem }) {
   const [readOnly, setReadOnly] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [toDoText, setToDoText] = useState("");
   const textInput = useRef();
+
+  useEffect(() => setToDoText(toDoName), [toDoName]);
 
   return (
     <Fragment>
@@ -19,7 +21,7 @@ export default function ToDoItem({ toDoKey, removeItem, editItem }) {
             setReadOnly(!readOnly);
           }}
         >
-          <div class="input-container">
+          <div className="input-container">
             <input
               type="checkbox"
               defaultChecked={isChecked}
@@ -33,22 +35,23 @@ export default function ToDoItem({ toDoKey, removeItem, editItem }) {
             <input
               type="text"
               ref={textInput}
-              placeholder="Enter a to-do"
+              placeholder="Enter your to-do"
               readOnly={readOnly}
+              value={toDoText === "Enter your to-do" ? "" : toDoText}
               onChange={(event) => setToDoText(event.target.value)}
             />
           </div>
-          <div class="btn-container">
+          <div className="btn-container">
             {readOnly ? (
               <button
-                class="save-edit-btn edit"
+                className="save-edit-btn edit"
                 type="submit"
                 onClick={() => textInput.current.focus()}
               >
                 Edit
               </button>
             ) : (
-              <button class="save-edit-btn save" type="submit">
+              <button className="save-edit-btn save" type="submit">
                 Save
               </button>
             )}
