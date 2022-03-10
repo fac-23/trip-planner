@@ -39,6 +39,11 @@ a {
   margin-top: 60px;
 }
 
+.flex-row{
+  display: flex;
+  justify-content: space-between;
+}
+
 /*------------------------------------*\
   COMPONENTS
 \*------------------------------------*/
@@ -180,6 +185,17 @@ a {
   background-color: #7ddbd6;
   padding: 0.5rem;
   border-radius: 10px 0px 0px 10px;
+}
+
+.plus-icon-btn-container {
+  border: transparent;
+  background-color: transparent;
+}
+
+.plus-icon--to-do-list {
+  width: 41px;
+  background-color: #7ddbd6;
+  border-radius: 50%;
 }
 
 /* documents list items */
