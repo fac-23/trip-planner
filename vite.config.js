@@ -12,6 +12,17 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
+      includeAssets: [
+        "favicon-16x16.png",
+        "favicon-32x32.png",
+        "favicon.ico",
+        "logo.png",
+        "robots.txt",
+        "apple-touch-icon.png",
+      ],
+      workbox: {
+        globPatterns: ["*.js", "*.css", "*.html", "*.jpg", "*.png"],
+      },
     }),
   ],
   server: { port: 3000 },
