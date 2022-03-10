@@ -39,7 +39,7 @@ a {
   margin-top: 60px;
 }
 
-.flex-row{
+.flex-row {
   display: flex;
   justify-content: space-between;
 }
@@ -75,12 +75,15 @@ a {
   width: 100%;
 }
 
-.home {
-  width: 2.5rem;
+.home-link {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   right: 1.8rem;
+}
+
+.home {
+  width: 2.5rem;
 }
 
 /* Bottom Navigation */

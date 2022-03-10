@@ -32,7 +32,7 @@ function Layout({ pageTitle }) {
         <button onClick={() => navigate(-1)} className="arrowBack">
           <img src={arrowBack} className="arrowBack--img"></img>
         </button>
-        <Link to={"/"}>
+        <Link to={"/"} className="home-link">
           <img src={home} className="home" />
         </Link>
         <h1>{pageTitle}</h1>
