@@ -10,6 +10,7 @@ function SingleTrip({ tripsStore }) {
   const [weatherIcon, setWeatherIcon] = useState(null);
   const [weatherDesc, setWeatherDesc] = useState(null);
   const [localTime, setLocalTime] = useState(null);
+  const [weatherTemp, setWeatherTemp] = useState(null);
 
   let { key } = useParams();
 
@@ -30,6 +31,7 @@ function SingleTrip({ tripsStore }) {
           .then((data) => {
             setWeatherDesc(data.weather[0].description);
             setWeatherIcon(data.weather[0].icon);
+            setWeatherTemp(data.main.feels_like);
           });
 
         fetch(
@@ -49,7 +51,7 @@ function SingleTrip({ tripsStore }) {
       <Layout pageTitle="Single Trip" />
 
       <div className="wrapper wrapper-singledoc-page center">
-        <h1>{singleEntry && singleEntry.name}</h1>
+        <h2 className="destination">{singleEntry && singleEntry.name}</h2>
         <p>Local time: {localTime}</p>
 
         <div className="meteo">
@@ -57,7 +59,8 @@ function SingleTrip({ tripsStore }) {
             src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
             className="weather-icon"
           ></img>
-          <p>{weatherDesc}</p>
+          <div></div>
+          <p>{`${weatherDesc}, feels like ${weatherTemp}`} &#xb0;C</p>
         </div>
         <ToDoList />
       </div>

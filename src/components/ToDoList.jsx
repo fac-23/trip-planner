@@ -27,8 +27,8 @@ export default function ToDoList() {
 
   return (
     <Fragment>
-      <section className="flex-row">
-        <h2>My List</h2>
+      <section className="to-do-list">
+        <h3>Create a list of things you'd like to do!</h3>
         <button
           className="plus-icon-btn-container"
           onClick={() => {

@@ -83,9 +83,9 @@ function Docs({ documentsStore }) {
         </section>
 
         <section className="documents  stack-lg">
-          <h2>
+          <h3>
             Click on one document to open it, or click the bin to delete it.
-          </h2>
+          </h3>
 
           <ul className="documents__list stack-md">
             {documents &&
