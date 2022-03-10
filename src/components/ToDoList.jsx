@@ -46,6 +46,7 @@ export default function ToDoList() {
                 toDoListStore={toDoListStore}
                 toDoState={toDoState}
                 toDoKey={toDo.key}
+                toDoName={toDo.name}
                 removeItem={removeItem}
                 editItem={editItem}
               />

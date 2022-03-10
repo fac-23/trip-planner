@@ -16,16 +16,16 @@ const StyledToDoItem = styled.div`
     margin-left: 10px;
     padding-left: 10px;
     font-size: 18px;
+    width: 100%;
   }
 
   input[type="checkbox"] {
     height: 18px;
     width: 18px;
-    
   }
 
   .input-container {
-    width: 50%;
+    width: 100%;
     text-align: left;
     display: flex;
     align-items: center;
