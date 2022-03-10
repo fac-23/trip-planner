@@ -28,7 +28,6 @@ function SingleDoc({ documentsStore }) {
   //   console.log("SINGLE ENTRY", singleEntry);
   // }, [singleEntry]);
 
-  // We will need some logic to detect the document type, if img or PDF, using typeFile? like on line 83 of myDocuments.jsx
   return (
     <Fragment>
       <Layout pageTitle="Single Document" />

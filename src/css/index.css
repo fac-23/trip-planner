@@ -35,16 +35,20 @@ a {
   color: var(--color-font);
 }
 
+h2 {
+  margin-bottom: 2rem;
+}
+
 .wrapper {
   margin-top: 60px;
 }
 
-.flex-row {
+/* .flex-row {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 /*------------------------------------*\
   COMPONENTS
@@ -75,6 +79,7 @@ a {
 
 .arrowBack--img {
   width: 100%;
+  transition: transform 0.2s;
 }
 
 .home-link {
@@ -86,6 +91,12 @@ a {
 
 .home {
   width: 2.5rem;
+  transition: transform 0.2s;
+}
+
+.arrowBack--img:hover,
+.home:hover {
+  transform: scale(1.1);
 }
 
 /* Bottom Navigation */
@@ -100,6 +111,7 @@ a {
   display: flex;
   align-items: center;
   overflow: hidden;
+  height: 80px;
 }
 
 .bottom-navigation > .nav {
@@ -119,9 +131,16 @@ a {
   padding: 0.5rem;
   margin: 0.5rem 1rem;
 }
+.iconBox:hover > svg,
+.iconBox:hover > div {
+  transition: transform 0.2s, color 0.2s;
+}
 
-.iconBox:hover {
-  background-color: rgb(89, 120, 255);
+.iconBox:hover > svg,
+.iconBox:hover > div {
+  /* color: rgb(89, 120, 255); */
+  color: #fff;
+  transform: scale(1.1);
 }
 
 .icons {
@@ -163,6 +182,10 @@ a {
   align-items: center;
   gap: 2rem;
   margin-top: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .home-page-links {
@@ -265,9 +288,18 @@ a {
 /*------------------------------------*\
   SINGLE TRIP PAGE
 \*------------------------------------*/
+
+.destination {
+  font-size: 2.5rem;
+}
+
+.to-do-list h3 {
+  margin-bottom: 2rem;
+}
+
 .meteo {
-  /* display: inline-flex; */
   align-items: center;
+  margin-bottom: 3rem;
 }
 /*------------------------------------*\
   MODIFIER CLASSES
