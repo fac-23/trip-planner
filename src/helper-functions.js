@@ -32,4 +32,24 @@ function formatDate(date) {
     .padStart(2, 0)}`;
 }
 
-export { imageInputHandler, formatDate };
+function displayCountDown(startDate) {
+  const currentDate = formatDate(new Date());
+  const startMonth = startDate.split("/")[1];
+  const currentMonth = currentDate.split("-")[1];
+
+  if (currentMonth === startMonth) {
+    const startDay = Number(startDate.split("/")[2]);
+    const currentDay = Number(currentDate.split("-")[2]);
+    const countDown = startDay - currentDay;
+
+    if (countDown === 1) {
+      return `Only ${countDown} day away!`;
+    }
+    if (countDown <= 10) {
+      return `Only ${countDown} days away!`;
+    }
+  }
+  return "";
+}
+
+export { imageInputHandler, formatDate, displayCountDown };

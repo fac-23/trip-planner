@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import city from "../assets/images/city.jpg";
 import bin from "../assets/images/bin.png";
-//
 // import styled component
 import StyledTripCard from "./styled/StyledTripCard";
-import { Link } from "react-router-dom";
+import { displayCountDown } from "../helper-functions";
 
 function TripCard({
   cityName,
@@ -40,7 +40,7 @@ function TripCard({
               <span className="trip__dates--start">{startDate}</span> -{" "}
               <span className="trip__dates--end">{endDate}</span>
             </p>
-            <p className="trip__countdown">10 days to go!</p>
+            <p className="trip__countdown">{displayCountDown(startDate)}</p>
           </div>
         </Link>
         <button
