@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import city from "../assets/images/city.jpg";
 import bin from "../assets/images/bin.png";
-
+//
 // import styled component
 import StyledTripCard from "./styled/StyledTripCard";
 import { Link } from "react-router-dom";
