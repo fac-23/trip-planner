@@ -76,7 +76,11 @@ function Docs({ documentsStore }) {
             />
 
             <StyledButton>
-              <img src={plusicon} className="plus-icon" />
+              <img
+                src={plusicon}
+                className="plus-icon"
+                alt="Plus Icon to upload a document"
+              />
               UPLOAD
             </StyledButton>
           </form>
@@ -101,6 +105,7 @@ function Docs({ documentsStore }) {
                     className="documents__btn--delete"
                     value={doc.key}
                     onClick={() => removeItem(doc.key)}
+                    alt="Delete Documents"
                   >
                     <img src={bin} alt="a bin" className="bin"></img>
                   </StyledButton>

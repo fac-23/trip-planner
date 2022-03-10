@@ -35,7 +35,11 @@ export default function ToDoList() {
             setItem("Enter your to-do", { completed: false });
           }}
         >
-          <img src={plusicon} className="plus-icon--to-do-list" />
+          <img
+            src={plusicon}
+            className="plus-icon--to-do-list"
+            alt="Plus Icon"
+          />
         </button>
       </section>
       <ul>

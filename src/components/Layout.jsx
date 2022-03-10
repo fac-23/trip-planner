@@ -30,10 +30,14 @@ function Layout({ pageTitle }) {
     <div>
       <nav className="top-navigation">
         <button onClick={() => navigate(-1)} className="arrowBack">
-          <img src={arrowBack} className="arrowBack--img"></img>
+          <img
+            src={arrowBack}
+            className="arrowBack--img"
+            alt="Arrow Back Button"
+          ></img>
         </button>
         <Link to={"/"} className="home-link">
-          <img src={home} className="home" />
+          <img src={home} className="home" alt="Home Icon Button" />
         </Link>
         <h1>{pageTitle}</h1>
       </nav>
