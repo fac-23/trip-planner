@@ -16,10 +16,11 @@ export default function ToDoList() {
     setItem,
     removeItem,
     getAll,
+    editItem,
   } = useDb(toDoListStore);
-  
+
   const toDoList = getAll();
-  
+
   useEffect(() => {
     console.log("TO DO LIST STATE", toDoState);
   }, [toDoState]);
@@ -40,14 +41,13 @@ export default function ToDoList() {
       <ul>
         {toDoList &&
           toDoList.map((toDo) => (
-            <li key={toDo.key} className="flex-row">
+            <li key={toDo.key}>
               <ToDoItem
                 toDoListStore={toDoListStore}
                 toDoState={toDoState}
                 toDoKey={toDo.key}
-                toDoName={toDo.name}
-                isCompleted={toDo.entryData}
                 removeItem={removeItem}
+                editItem={editItem}
               />
             </li>
           ))}

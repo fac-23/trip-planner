@@ -83,11 +83,33 @@ export default function useDb(store) {
     });
   }
 
+  function editItem(key, name, entryData) {
+    store
+      .getItem(key)
+      .then(() => {
+        setState({ status: "editing", data });
+
+        store.setItem(key, { name, entryData }).then(() => {
+          console.log(`Entry ${key} updated`);
+          const newData = [...data].filter((obj) => {
+            console.log("editing state");
+            return obj.key !== key;
+          });
+          newData.push({ key: key, name: name, data: entryData });
+          setState({ status: "resolved", data: newData });
+        });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
   return {
     status,
     setItem,
     getAll,
     removeItem,
+    editItem,
     state,
   };
 }
