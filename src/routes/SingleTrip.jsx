@@ -56,6 +56,7 @@ function SingleTrip({ tripsStore }) {
           <img
             src={`https://openweathermap.org/img/wn/${weatherIcon}@2x.png`}
             className="weather-icon"
+            alt="Weather Icon"
           ></img>
           <p>{weatherDesc}</p>
         </div>

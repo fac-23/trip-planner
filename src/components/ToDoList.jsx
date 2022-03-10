@@ -17,9 +17,9 @@ export default function ToDoList() {
     removeItem,
     getAll,
   } = useDb(toDoListStore);
-  
+
   const toDoList = getAll();
-  
+
   useEffect(() => {
     console.log("TO DO LIST STATE", toDoState);
   }, [toDoState]);
@@ -34,7 +34,11 @@ export default function ToDoList() {
             setItem("Enter your to-do", { completed: false });
           }}
         >
-          <img src={plusicon} className="plus-icon--to-do-list" />
+          <img
+            src={plusicon}
+            className="plus-icon--to-do-list"
+            alt="Plus Icon"
+          />
         </button>
       </section>
       <ul>

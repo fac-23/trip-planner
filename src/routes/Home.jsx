@@ -5,7 +5,7 @@ import logo from "../assets/images/logo.png";
 export default function Home() {
   return (
     <div className="wrapper home-wrapper center">
-      <img src={logo} className="logo"></img>
+      <img src={logo} className="logo" alt="logo"></img>
 
       <section className="app-intro stack-md">
         <p>Hey there! 👋</p>
