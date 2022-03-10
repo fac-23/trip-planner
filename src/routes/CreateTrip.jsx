@@ -31,8 +31,6 @@ export default function CreateTrip({ tripsStore }) {
       <div className="wrapper wrapper-trips-page">
         <h2>Create a new trip</h2>
         <form
-          value={cities}
-          as="select"
           className="stack-md"
           onSubmit={(event) => {
             event.preventDefault();
