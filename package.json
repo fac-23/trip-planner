@@ -19,6 +19,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.26.0",
     "babel-jest": "^27.5.1",
+    "cities.json": "^1.1.5",
     "cypress-downloadfile": "^1.2.1",
     "localforage": "^1.10.0",
     "pdfjs-dist": "^2.12.313",
