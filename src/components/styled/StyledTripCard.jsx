@@ -48,7 +48,7 @@ const StyledTripCard = styled.div`
   }
 
   .trip__delete-btn--icon {
-    width: 15px;
+    width: 20px;
   }
 
   .trip__dates {

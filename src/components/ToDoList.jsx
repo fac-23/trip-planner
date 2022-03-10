@@ -41,12 +41,11 @@ export default function ToDoList() {
       <ul>
         {toDoList &&
           toDoList.map((toDo) => (
-            <li key={toDo.key} className="flex-row">
+            <li key={toDo.key}>
               <ToDoItem
                 toDoListStore={toDoListStore}
                 toDoState={toDoState}
                 toDoKey={toDo.key}
-                toDoName={toDo.name}
                 removeItem={removeItem}
                 editItem={editItem}
               />
