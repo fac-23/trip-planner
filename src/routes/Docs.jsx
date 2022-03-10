@@ -1,12 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, Fragment } from "react";
+// import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 
-// import uuid, to generate random ids
-import { v4 as uuidv4 } from "uuid";
-
 // Helper function files
-import useDb from "../../useDb.js";
-import { imageInputHandler } from "../../helper-functions.js";
+import useDb from "../hooks/useDb.js";
+import { imageInputHandler } from "../helper-functions.js";
 
 // components
 import StyledButton from "../components/styled/StyledButton";
@@ -21,15 +19,15 @@ function Docs({ documentsStore }) {
   // destructure helper functions specifically for this database instance from useDB
   // stateObject looks like this: { status: "loading", data: null }
   const {
-    state: stateObject,
+    // state: stateObject,
     getAll,
     setItem,
     removeItem,
   } = useDb(documentsStore);
 
-  useEffect(() => {
-    console.log("stateObject FROM USEEFFECT IN DOCS", stateObject);
-  }, [stateObject]);
+  // useEffect(() => {
+  //   console.log("stateObject FROM USEEFFECT IN DOCS", stateObject);
+  // }, [stateObject]);
 
   /* ******************* 
    STATES
@@ -64,6 +62,7 @@ function Docs({ documentsStore }) {
               type="file"
               accept=".jpg,.jpeg,.gif,.png,.pdf"
               onChange={(event) => imageInputHandler(event, setImage)}
+              required
             />
 
             <label htmlFor="file-name">Enter a name for your file</label>
@@ -73,6 +72,7 @@ function Docs({ documentsStore }) {
               onChange={(event) => setFileName(event.target.value)}
               value={fileName}
               placeholder="Enter a name"
+              required
             />
 
             <StyledButton>
@@ -90,7 +90,7 @@ function Docs({ documentsStore }) {
           <ul className="documents__list stack-md">
             {documents &&
               documents.map((doc) => (
-                <li key={uuidv4()} className="documents__listItem">
+                <li key={doc.key} className="documents__listItem">
                   <Link
                     to={`/my-documents/${doc.key}`}
                     className="documents__link"

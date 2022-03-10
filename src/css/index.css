@@ -8,7 +8,8 @@ BASE
 }
 
 body {
-  height: 100vh;
+  height: 100%;
+  padding-bottom: 160px;
   width: 100vw;
   font-family: "Raleway", sans-serif;
   color: var(--color-font);
@@ -17,6 +18,12 @@ body {
 form {
   display: flex;
   flex-direction: column;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 li {
@@ -29,8 +36,12 @@ a {
 }
 
 .wrapper {
-  height: 100vh;
   margin-top: 60px;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*------------------------------------*\
@@ -40,7 +51,7 @@ a {
 /* TopNavigation */
 
 .top-navigation {
-  height: 50px;
+  height: 60px;
   width: 100%;
   background-color: var(--color-primary);
   display: flex;
@@ -52,22 +63,27 @@ a {
   text-align: center;
 }
 
-.btn {
-  display: none;
+.arrowBack {
+  width: 1.8rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
 }
 
-.arrowBack {
-  width: 2rem;
+.arrowBack--img {
+  width: 100%;
+}
+
+.home-link {
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.8rem;
 }
 
 .home {
   width: 2.5rem;
-  position: absolute;
-  top: 0;
-  right: 0.5rem;
 }
 
 /* Bottom Navigation */
@@ -76,26 +92,30 @@ a {
   background-color: var(--color-primary);
   position: fixed;
   z-index: 99;
-  height: auto;
+  height: 50px;
   bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
   overflow: hidden;
 }
 
-.links {
+.bottom-navigation > .nav {
+  width: 100%;
+}
+
+.bottomNavlinks {
+  width: 100%;
   text-align: center;
   font-size: 1rem;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .iconBox {
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 0.5rem 1rem;
 }
 
 .iconBox:hover {
@@ -114,7 +134,14 @@ a {
 \*------------------------------------*/
 .logo {
   width: 100%;
-  max-width: 250px;
+  max-width: 220px;
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    width: 100%;
+    max-width: 180px;
+  }
 }
 
 .app-intro {
@@ -133,6 +160,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: 2rem;
+  margin-top: 0;
 }
 
 .home-page-links {
@@ -162,6 +190,17 @@ a {
   border-radius: 10px 0px 0px 10px;
 }
 
+.plus-icon-btn-container {
+  border: transparent;
+  background-color: transparent;
+}
+
+.plus-icon--to-do-list {
+  width: 41px;
+  background-color: #7ddbd6;
+  border-radius: 50%;
+}
+
 /* documents list items */
 
 .documents {
@@ -171,8 +210,6 @@ a {
 .documents__list {
   list-style: none;
   text-align: left;
-  height: 100%;
-  margin-bottom: 80px;
 }
 
 .documents__listItem {

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const StyledButton = styled.button`
   background-color: var(--color-primary-light);
-  border: none;
   border-radius: 10px;
   padding: 0.8rem;
   max-width: 300px;
