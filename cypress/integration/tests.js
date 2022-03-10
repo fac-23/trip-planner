@@ -48,15 +48,20 @@ describe("home button and back button", () => {
 // test to check if user can add documents
 // and they appear on the docs page
 
-describe("user can add a document", () => {
-  it("can click on add button on my documents page", () => {
-    cy.visit("/my-documents");
-    // cy.get('img[className="plus-icon"]');
-    // cy.click();
-    cy.get("input[id='upload-input']").click();
-    // cy.get("button").click();
-    // cy.get();
-    // cy.get("label").contains("pdf");
-    // cy.url("/single-doc");
-  });
-});
+// describe("user can add a document", () => {
+//   it("can click on add button on my documents page", () => {
+//     cy.visit("/my-documents");
+//     cy.get("input[id='upload-input']").click();
+//     cy.downloadFile(
+//       "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+//       "Downloads",
+//       "dummy.pdf"
+//     );
+//     cy.readFile("src/assets/images/dummy.pdf");
+//     cy.get('[type="file"]').attachFile({
+//       filePath: "pdffilePath",
+//       encoding: "base64",
+//       mimeType: "application/pdf",
+//     });
+//   });
+// });
