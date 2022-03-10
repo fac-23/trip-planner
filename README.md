@@ -10,12 +10,19 @@ Trip Planner is a travel app to keep your trips tidy! Upload your travel documen
 
 ## Roles
 
-QA - Milly
-DevOps - Orian
-Scrum Facilitator & UX/UI - Paolo
+* QA - [Milly](https://github.com/millipede-cpu)
+* DevOps - [Orian](https://github.com/OrianP)
+* Scrum Facilitator & UX/UI - [Paolo](https://github.com/paologhidoni)
 
-## screenshots
+## Preview
+Add a new travel document
 
 ![](src/assets/../../src/assets/images/screenshot1.png)
+
+View all your upcoming trips
+
 ![](src/assets/../../src/assets/images/screenshot2.png)
+
+Make a list of things to do on your trip
+
 ![](src/assets/../../src/assets/images/screenshot3.png)
