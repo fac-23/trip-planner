@@ -21,8 +21,27 @@ describe("visit all the pages", () => {
     cy.url().should("include", "/single-trip");
     // Single Trips Page
     cy.visit("/singggle-trip");
-    cy.url().should("include", "Page not found");
+    // cy.url().should("include", "Page not found");
+    cy.get("h1").contains("Page not found");
     // Error page - Page not found
+  });
+});
+
+// test to check the functionality
+//of the home button and back button
+
+describe("home button and back button", () => {
+  it("can go to previous page when clicking on back arrow", () => {
+    cy.visit("/my-documents");
+    cy.visit("/my-trips");
+    cy.get("button[class='arrowBack']").click();
+    cy.url().should("include", "/my-documents");
+  });
+
+  it("can go to the home page when clicking home button", () => {
+    cy.visit("my-documents");
+    cy.get("a[class='home-link']").click();
+    cy.get("img[class='logo']").should("exist");
   });
 });
 
@@ -32,23 +51,12 @@ describe("visit all the pages", () => {
 describe("user can add a document", () => {
   it("can click on add button on my documents page", () => {
     cy.visit("/my-documents");
-    cy.get('img[className="plus-icon"]');
-    cy.click();
-    cy.get("label").contains("pdf");
-    cy.url("/single-doc");
-  });
-});
-
-// test to check the functionality
-//of the home button and back button
-
-describe("home button and back button", () => {
-  it("can go to home page and back a page", () => {
-    cy.get('img[className="home"]');
-    cy.click();
-    cy.url("/");
-    cy.get('img[className="arrowBack"]');
-    cy.click();
-    cy.go("back");
+    // cy.get('img[className="plus-icon"]');
+    // cy.click();
+    cy.get("input[id='upload-input']").click();
+    // cy.get("button").click();
+    // cy.get();
+    // cy.get("label").contains("pdf");
+    // cy.url("/single-doc");
   });
 });
