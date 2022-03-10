@@ -40,7 +40,8 @@ function SingleDoc({ documentsStore }) {
         )}
 
         {singleEntry && singleEntry.entryData.includes("data:application/pdf") && (
-          <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+          // <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
+          <Worker workerUrl="../pdf.worker.min.js">
             <Viewer fileUrl={singleEntry.entryData}></Viewer>
           </Worker>
         )}
