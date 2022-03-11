@@ -1,22 +1,8 @@
 import React from "react";
-import "./css/App.css";
+import "./css/index.css";
 
 // Import React Router packages
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
-// PWA config
-
-// commented out as it is registered as a plugin and vite knows where to look for it
-// eslint-disable-next-line import/no-unresolved
-import { registerSW } from "virtual:pwa-register";
-
-// If we have a service worker and we are not in development, start the service worker. If line 16 is commented out we will instead be able to start the service worker while we are in the development phase to be able to work on it.
-if (
-  "serviceWorker" in navigator
-  // && window.location.includes("/localhost/") === false
-) {
-  registerSW();
-}
 
 // Import Pages components
 import Home from "./routes/Home";
@@ -26,6 +12,11 @@ import SingleDoc from "./routes/SingleDoc";
 import Trips from "./routes/Trips";
 import SingleTrip from "./routes/SingleTrip";
 import CreateTrip from "./routes/CreateTrip";
+// import SearchPhotos from "./SearchPhotos";
+
+// import register service worker module
+// eslint-disable-next-line import/no-unresolved
+import { registerSW } from "virtual:pwa-register";
 
 // Import global styles - CSS variables
 import { createGlobalStyle } from "styled-components";
@@ -37,6 +28,14 @@ const GlobalStyles = createGlobalStyle`
     --color-light-grey: #f4f4f4;
   }
 `;
+
+// If we have a service worker and we are not in development, start the service worker. If line 16 is commented out we will instead be able to start the service worker while we are in the development phase to be able to work on it.
+if (
+  "serviceWorker" in navigator
+  // && window.location.includes("/localhost") === false
+) {
+  registerSW();
+}
 
 // import localForage, library to use IndexedDB
 import localforage from "localforage";
@@ -84,6 +83,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+      {/* <SearchPhotos /> */}
     </div>
   );
 }
