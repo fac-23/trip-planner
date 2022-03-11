@@ -91,7 +91,7 @@ Some of our assumptions regarding what users want from a travel app were confirm
   - Push notifications on trip day
   - Fix To do list bugs
   - Make document names editable and allow re-uploading an existing doc
-  - Was the project a success?
+  
 
 ### Planning
 ---
@@ -125,7 +125,17 @@ Some of our assumptions regarding what users want from a travel app were confirm
 ### Design
 ---
 - How did you plan a user experience?
-  (insert Figma board screenshot)
+
+Figma wireframes
+
+First iteration
+ <img width="635" alt="Screenshot 2022-03-11 at 14 10 24" src="https://user-images.githubusercontent.com/77785778/157883891-4e1b92af-2fca-4685-9792-14f184930606.png">
+ 
+ Second iteration
+ <img width="661" alt="Screenshot 2022-03-11 at 14 10 37" src="https://user-images.githubusercontent.com/77785778/157883960-d40cb49e-55a1-4a39-bc69-83365b17c7ad.png">
+<img width="600" alt="Screenshot 2022-03-11 at 14 10 43" src="https://user-images.githubusercontent.com/77785778/157883978-36e4609b-a9e7-4a9c-b160-7dee85b854b6.png">
+
+
 - What technical decisions did you make?
   
   - Frontend first in our development approach
@@ -150,27 +160,34 @@ Some of our assumptions regarding what users want from a travel app were confirm
 
 - What interesting technical problems did you have to solve?
   - Keeping react state and database in sync (custom React hook)
+  - Progressive Web App setup and implementation
 
 - How did you debug issues that arose?
-  Apply structured techniques to problem solving to identify and resolve issues and debug basic flaws in code (S7)
+  - Checking documentation
+  - Putting `console.log` at breakpoints to find bug source
+  - Inspect with Dev tools
+  - Preview PWA offline with dev tools
 
 ### Test
 ---
 - How did you verify your project worked correctly?
-  Identify and create test scenarios which satisfy the project specification (S6)
-
-- Did writing automated tests catch any bugs?
-  Analyse unit testing results and review the outcomes, correcting errors. (S4)
+  - manual testing of user flows on deployed site
+  - Cypress end to end testing
+  - Vercel integrated logs for build fails
 
 ### Deploy
 ---
 - Where/how did you deploy your application?
-  Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)
-
-- What problems did you encounter during deployment?
+  - Deployed on Vercel because of good dev experience and automated testing on builds
+  - Easy and quick deployment
 
 ### Maintain
 ---
 - Is it easy for someone make changes to the codebase?
+  - We strived to keep the codebase file system well-organised 
+  - Built reusable components and styled components
+  - Clear naming of variables
+  - custom React hook for syncing db and state has been reused across three different local databases
 
 - Could a new person quickly be onboarded to contribute?
+  - We believe so because of the reasons listed above and also because the core features of the app are functioning well and there is a stable base to build upon
