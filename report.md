@@ -1,4 +1,5 @@
-### Introduction
+## Introduction
+
 
 - What are you building?
 
@@ -9,6 +10,7 @@ We are building an app to store travel documents, view them and plan trips.
 To help the user easily access all travel documents in one place.
 
 ### Project scope
+---
 
 - What are you not building?
 
@@ -19,6 +21,8 @@ Google Maps, Trip Advisor, Google. The scope will be abit more restricted, it wi
 Going through the discovery phase, checking what apps already exist and conducting user research, keeping the app scoped to our timeframe.
 
 ### Project plan
+
+---
 
 - How are you going to structure your sprints?
 
@@ -33,6 +37,8 @@ We're going to start with the MVP basic features and move on to stretch goals if
 
 ### Requirement analysis
 
+---
+
 - How will you ensure your project is accessible to as many users as possible?
 
 Writing semantic, accessibile HTML and CSS. Implementing mobile-first, responsible design to make the app accessible from most devices.
@@ -44,15 +50,21 @@ Writing semantic, accessibile HTML and CSS. Implementing mobile-first, responsib
 
 ### Project learnings
 
+---
+
 - Did your team work effectively?
 
-Yes, we worked together on core features and assigned other issues individually 
+Yes, we worked together on core features and assigned other issues individually. We were all aligned with the goals of the project. We discussed every feature in detail before writing any code
 
 - What would you do differently next time?
 
     - Dedicate more time to tech stack research, we used new libraries such as Local Forage and React Router
+    - Dedicate more time to planning Database schema - even if local or non-relational. Consider all data being collected and how to organize it before writing the       code
+
 
 ### Research and findings
+
+---
 
 - What did you find out from user testing?
 
@@ -60,22 +72,34 @@ Many of our assumptions were challenged.
 We had to modify our UX and UI choices and learned what features are more relevant for the user.
 
 ### Project outcomes
+---
 
 - Were your assumptions right or wrong?
-
+Some of our assumptions regarding what users want from a travel app were confirmed: 
+  - users want one place to store all travel related docs
+  - a simple interface with quick links to homepage and back arrow
+  - food recommendations are a priority for users
 
 ### Recommendations and conclusions
+---
 
 - What features would you prioritise to build next?
-- Was the project a success?
-  Software Development Lifecycle stages
+  - Food Api [Spoonacular](https://spoonacular.com/food-api)
+  - Local events / news API 
+  - Utilising [Cities.json](https://github.com/lutangar/cities.json) for error handling user input :city_sunrise: 
+  - Finish PWA implementation
+  - Push notifications on trip day
+  - Fix To do list bugs
+  - Make document names editable and allow re-uploading an existing doc
+  - Was the project a success?
 
 ### Planning
+---
 
 - What roles did your team take on?  
   
   DevOps - Orian  
-  UX/UI and Scrum - Paolo  
+  UX/UI and Scrum Facilitator - Paolo  
   QA - Milly
 
 - Explain the roles and responsibilities of all people working within the software development lifecycle, and how they relate to the project (K2)
@@ -90,13 +114,16 @@ We had to modify our UX and UI choices and learned what features are more releva
     - Yes! Particularly in maximising our velocity. Knowing which domains of the project belong to each role helped us work more efficiently together 
 
 ### Analysis
+---
 
 - What might be the intended and unintended consequences of building this product?
 
-(insert Miro board screenshot)
+<img width="577" alt="Screenshot 2022-03-11 at 12 59 31" src="https://user-images.githubusercontent.com/77785778/157871193-6fc1e921-3651-478f-9447-86733ee49302.png">
+
+
 
 ### Design
-
+---
 - How did you plan a user experience?
   (insert Figma board screenshot)
 - What technical decisions did you make?
@@ -109,10 +136,11 @@ We had to modify our UX and UI choices and learned what features are more releva
 
 - Did you create a technical specification?
   - We discussed our technical requirements and researched the best tech stack for our purposes
-  (insert Miro screenshot)
+  <img width="491" alt="Screenshot 2022-03-11 at 12 59 42" src="https://user-images.githubusercontent.com/77785778/157871295-40e11b59-1357-407c-8c8a-6fff7fd67eb7.png">
+
 
 ### Implementation/Build
-
+---
 - How did you ensure your code was good?
   - We created reusable helper functions and react custom hooks to extract logic and avoid duplicated code
   - We wrote semantic, accessible HTML
@@ -127,7 +155,7 @@ We had to modify our UX and UI choices and learned what features are more releva
   Apply structured techniques to problem solving to identify and resolve issues and debug basic flaws in code (S7)
 
 ### Test
-
+---
 - How did you verify your project worked correctly?
   Identify and create test scenarios which satisfy the project specification (S6)
 
@@ -135,14 +163,14 @@ We had to modify our UX and UI choices and learned what features are more releva
   Analyse unit testing results and review the outcomes, correcting errors. (S4)
 
 ### Deploy
-
+---
 - Where/how did you deploy your application?
   Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)
 
 - What problems did you encounter during deployment?
 
 ### Maintain
-
+---
 - Is it easy for someone make changes to the codebase?
 
 - Could a new person quickly be onboarded to contribute?
