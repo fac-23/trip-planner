@@ -126,12 +126,14 @@ Some of our assumptions regarding what users want from a travel app were confirm
 ---
 - How did you plan a user experience?
 
-Figma wireframes
+### Figma wireframes
 
-First iteration
+First iteration  
+---
  <img width="635" alt="Screenshot 2022-03-11 at 14 10 24" src="https://user-images.githubusercontent.com/77785778/157883891-4e1b92af-2fca-4685-9792-14f184930606.png">
  
- Second iteration
+Second iteration
+---
  <img width="661" alt="Screenshot 2022-03-11 at 14 10 37" src="https://user-images.githubusercontent.com/77785778/157883960-d40cb49e-55a1-4a39-bc69-83365b17c7ad.png">
 <img width="600" alt="Screenshot 2022-03-11 at 14 10 43" src="https://user-images.githubusercontent.com/77785778/157883978-36e4609b-a9e7-4a9c-b160-7dee85b854b6.png">
 
